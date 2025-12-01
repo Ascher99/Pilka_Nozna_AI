@@ -4,88 +4,156 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, log_loss, brier_score_loss
+from sklearn.metrics import accuracy_score, classification_report
+from collections import defaultdict
+import glob
 
-from utils import load_matches_folder
+from ml.utils import load_matches_folder # Poprawiony import
 
+# --- KONFIGURACJA ---
 BASE_DIR = Path(__file__).resolve().parents[1]  # -> backend/
-DATA_DIR = BASE_DIR / "data" / "Ekstraklasa"
-MODEL_PATH = BASE_DIR / "model.pkl"
-ENCODER_PATH = BASE_DIR / "label_encoder.pkl"
+DATA_DIR = BASE_DIR / "data"
+MODELS_DIR = BASE_DIR / "models" # Nowy folder na modele
+MODELS_DIR.mkdir(exist_ok=True)
 
+LAST_N = 5  # Z ilu ostatnich meczów liczymy formę
 
-def result_label(hg: int, ag: int) -> int:
-    if hg > ag:
-        return 1     # home
-    if hg < ag:
-        return -1    # away
-    return 0         # draw
+def pts_to_char(pts: int) -> str:
+    if pts == 3: return "W"
+    if pts == 1: return "D"
+    return "L"
+
+def calculate_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, list[str]]]:
+    # ... (kod funkcji calculate_features pozostaje bez zmian)
+    # Wklej całą funkcję z poprzedniego kroku:
+
+    df = df.sort_values("date").reset_index(drop=True)
+
+    team_stats = defaultdict(list)
+    h_avg_goals = []
+    a_avg_goals = []
+    h_avg_points = []
+    a_avg_points = []
+    raw_histories = {} # Do zbierania historii W/D/L
+
+    for idx, row in df.iterrows():
+        home = row["home_team"]
+        away = row["away_team"]
+        hg = row["home_goals"]
+        ag = row["away_goals"]
+
+        def get_avg(team, n=LAST_N):
+            history = team_stats[team]
+            if not history:
+                return 0.0, 1.3
+            recent = history[-n:] 
+            avg_g = sum(x[0] for x in recent) / len(recent)
+            avg_p = sum(x[1] for x in recent) / len(recent)
+            return avg_g, avg_p
+
+        h_g, h_p = get_avg(home)
+        a_g, a_p = get_avg(away)
+
+        h_avg_goals.append(h_g)
+        h_avg_points.append(h_p)
+        a_avg_goals.append(a_p)
+        a_avg_points.append(a_p)
+
+        h_pts = 3 if hg > ag else (1 if hg == ag else 0)
+        a_pts = 3 if ag > hg else (1 if ag == hg else 0)
+
+        # Zapisujemy historię (gole, punkty)
+        team_stats[home].append((hg, h_pts))
+        team_stats[away].append((ag, a_pts))
+
+    # Obliczamy finalne historyczne W/D/L dla każdego zespołu
+    for team, history in team_stats.items():
+        recent = history[-LAST_N:]
+        # Konwertujemy punkty na literki
+        raw_histories[team] = [pts_to_char(x[1]) for x in recent]
+    
+    # Przypisujemy obliczone kolumny do DataFrame
+    df["h_form_goals"] = h_avg_goals
+    df["a_form_goals"] = a_avg_goals
+    df["h_form_points"] = h_avg_points
+    df["a_form_points"] = a_avg_points
+
+    results = []
+    for h, a in zip(df["home_goals"], df["away_goals"]):
+        if h > a: results.append("home")
+        elif a > h: results.append("away")
+        else: results.append("draw")
+    df["target"] = results
+    
+    return df, raw_histories
+
+def train_for_league(league_id: str, league_dir: Path):
+    """Trenuje model dla jednej ligi i zapisuje artefakty."""
+    print(f"\n=======================================================")
+    print(f"🤖 Rozpoczynam trening dla Ligi: {league_id.upper()}")
+    
+    # Ładowanie i inżynieria cech
+    raw_df = load_matches_folder(league_dir)
+    df, _ = calculate_features(raw_df)
+    
+    # Usuwamy mecze z niepełną historią (cold start)
+    df = df.iloc[LAST_N * 2:] 
+
+    if len(df) < 50:
+        print(f"⚠️ Za mało danych ({len(df)} meczów). Pomiń trening dla {league_id.upper()}.")
+        return
+
+    print(f"📊 Trenuję na {len(df)} meczach.")
+    
+    # 1. Enkoder etykiet
+    target_enc = LabelEncoder()
+    y = target_enc.fit_transform(df["target"])
+
+    # 2. Wybór cech i Skalowanie
+    features = ["h_form_goals", "a_form_goals", "h_form_points", "a_form_points"]
+    X = df[features].values
+
+    scaler = StandardScaler()
+    X = scaler.fit_transform(X)
+
+    # 3. Podział na zbiór treningowy i testowy
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
+
+    # 4. Trening modelu
+    model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=2000)
+    model.fit(X_train, y_train)
+
+    # 5. Ewaluacja
+    y_pred = model.predict(X_test)
+    acc = accuracy_score(y_test, y_pred)
+    
+    print(f"🏆 Skuteczność modelu (Accuracy): {acc:.2%}")
+    print(classification_report(y_test, y_pred, target_names=target_enc.classes_))
+    
+    # 6. Zapis artefaktów
+    to_save = {
+        "model": model,
+        "scaler": scaler,
+        "target_encoder": target_enc,
+    }
+    model_path = MODELS_DIR / f"model_{league_id}.pkl"
+    joblib.dump(to_save, model_path)
+    print(f"Zapisano model ligi {league_id.upper()} do: {model_path}")
 
 
 def main():
-    print(f"Ładowanie CSV z: {DATA_DIR}")
-    df = load_matches_folder(DATA_DIR)
+    # 1. Znajdujemy wszystkie foldery lig w katalogu data/
+    league_dirs = [d for d in DATA_DIR.iterdir() if d.is_dir() and d.name != '__pycache__']
+    
+    if not league_dirs:
+        print("Błąd: Nie znaleziono żadnych folderów z danymi lig w 'backend/data/'.")
+        return
 
-    # 🔍 DEBUG – sprawdzenie, że bierzemy wszystkie sezony
-    print("Liczba wierszy (wszystkie sezony razem):", df.shape[0])
-    print("Zakres dat:", df["date"].min(), "→", df["date"].max())
-    print("Unikalne drużyny (home):", df["home_team"].nunique())
-    print("Unikalne drużyny (away):", df["away_team"].nunique())
-    print("Przykładowe mecze:")
-    print(df.head(5))
-    print("-" * 60)
-
-    # etykiety
-    df["result"] = [result_label(h, a) for h, a in zip(df["home_goals"], df["away_goals"])]
-
-    # enkoder zespołów
-    le = LabelEncoder()
-    teams_all = pd.unique(pd.concat([df["home_team"], df["away_team"]], axis=0))
-    le.fit(teams_all)
-
-    df["home_enc"] = le.transform(df["home_team"])
-    df["away_enc"] = le.transform(df["away_team"])
-
-    # Prosty baseline: tylko identyfikatory drużyn
-    X = df[["home_enc", "away_enc"]].values
-    y = df["result"].values
-
-    X_tr, X_te, y_tr, y_te = train_test_split(
-        X, y, test_size=0.2, random_state=42, stratify=y
-    )
-
-    clf = LogisticRegression(
-        max_iter=2000,
-        class_weight="balanced",
-        multi_class="auto",
-    )
-    clf.fit(X_tr, y_tr)
-
-    # ewaluacja
-    y_proba = clf.predict_proba(X_te)
-    y_pred = clf.predict(X_te)
-
-    classes = clf.classes_  # np. [-1, 0, 1]
-    acc = accuracy_score(y_te, y_pred)
-    ll = log_loss(y_te, y_proba, labels=classes)
-
-    # brier multi-class – średnia po klasach
-    briers = []
-    for idx, c in enumerate(classes):
-        y_true_bin = (y_te == c).astype(int)
-        y_prob_bin = y_proba[:, idx]
-        briers.append(brier_score_loss(y_true_bin, y_prob_bin))
-    brier = float(np.mean(briers))
-
-    print(f"Accuracy: {acc:.3f} | LogLoss: {ll:.3f} | Brier: {brier:.3f}")
-    print(f"Zespołów w encoderze: {len(le.classes_)}")
-
-    joblib.dump(clf, MODEL_PATH)
-    joblib.dump(le, ENCODER_PATH)
-    print(f"Zapisano: {MODEL_PATH.name}, {ENCODER_PATH.name}")
-
+    for league_dir in league_dirs:
+        league_id = league_dir.name.lower()
+        train_for_league(league_id, league_dir)
 
 if __name__ == "__main__":
     main()

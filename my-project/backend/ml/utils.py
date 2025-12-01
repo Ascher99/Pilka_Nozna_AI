@@ -11,6 +11,18 @@ COLMAP = {
     "away_goals": ["away_goals", "FTAG", "AG", "away_score", "AwayGoals"],
 }
 
+# Słownik mapujący nazwy z CSV (klucz) na nazwy z Frontendu (wartość)
+TEAM_MAPPING = {
+    "Man City": "Manchester City",
+    "Man United": "Manchester United",
+    "Nott'm Forest": "Nottingham Forest",
+    "Newcastle": "Newcastle United",
+    "Leicester": "Leicester City",
+    "Ipswich": "Ipswich Town",
+    "Wolverhampton": "Wolves", # Na wypadek gdyby w innym pliku było inaczej
+    "West Ham United": "West Ham", # Na wypadek innej wersji
+}
+
 def pick_col(df: pd.DataFrame, wanted: List[str]) -> str:
     cols = {c.lower(): c for c in df.columns}
     for w in wanted:
@@ -26,27 +38,54 @@ def pick_col(df: pd.DataFrame, wanted: List[str]) -> str:
 def load_matches_folder(folder: Path) -> pd.DataFrame:
     files = sorted(list(folder.glob("*.csv")))
     if not files:
-        raise FileNotFoundError(f"Brak plików CSV w {folder}")
+        print(f"⚠️ Ostrzeżenie: Brak plików CSV w {folder}")
+        return pd.DataFrame()
 
     frames = []
     for f in files:
-        df = pd.read_csv(f, encoding="utf-8")
-        date_col = pick_col(df, COLMAP["date"]) if any(k in " ".join(df.columns) for k in COLMAP["date"]) else None
-        home_col = pick_col(df, COLMAP["home_team"])
-        away_col = pick_col(df, COLMAP["away_team"])
-        hg_col = pick_col(df, COLMAP["home_goals"])
-        ag_col = pick_col(df, COLMAP["away_goals"])
+        try:
+            try:
+                df = pd.read_csv(f, encoding="utf-8")
+            except UnicodeDecodeError:
+                df = pd.read_csv(f, encoding="latin1")
 
-        out = pd.DataFrame({
-            "date": pd.to_datetime(df[date_col]) if date_col else pd.NaT,
-            "home_team": df[home_col].astype(str).str.strip(),
-            "away_team": df[away_col].astype(str).str.strip(),
-            "home_goals": pd.to_numeric(df[hg_col], errors="coerce").fillna(0).astype(int),
-            "away_goals": pd.to_numeric(df[ag_col], errors="coerce").fillna(0).astype(int),
-        })
-        frames.append(out)
+            date_col = pick_col(df, COLMAP["date"]) if any(k in " ".join(df.columns) for k in COLMAP["date"]) else None
+            home_col = pick_col(df, COLMAP["home_team"])
+            away_col = pick_col(df, COLMAP["away_team"])
+            hg_col = pick_col(df, COLMAP["home_goals"])
+            ag_col = pick_col(df, COLMAP["away_goals"])
+
+            # Obsługa daty z dayfirst=True (dla formatu DD/MM/YYYY w Premier League)
+            if date_col:
+                date_series = pd.to_datetime(df[date_col], dayfirst=True, errors='coerce')
+            else:
+                date_series = pd.NaT
+
+            out = pd.DataFrame({
+                "date": date_series,
+                "home_team": df[home_col].astype(str).str.strip(),
+                "away_team": df[away_col].astype(str).str.strip(),
+                "home_goals": pd.to_numeric(df[hg_col], errors="coerce").fillna(0).astype(int),
+                "away_goals": pd.to_numeric(df[ag_col], errors="coerce").fillna(0).astype(int),
+            })
+            
+            # --- NORMALIZACJA NAZW (Mapowanie) ---
+            out["home_team"] = out["home_team"].replace(TEAM_MAPPING)
+            out["away_team"] = out["away_team"].replace(TEAM_MAPPING)
+            # -------------------------------------
+
+            out = out.dropna(subset=["date"])
+            frames.append(out)
+            
+        except Exception as e:
+            print(f"⚠️ Pomijam plik {f.name} z powodu błędu: {e}")
+
+    if not frames:
+        return pd.DataFrame()
 
     all_df = pd.concat(frames, ignore_index=True)
+    # Filtrowanie błędnych wierszy
     all_df = all_df[all_df["home_team"].ne(all_df["away_team"])]
     all_df = all_df.dropna(subset=["home_team", "away_team"])
+    
     return all_df.reset_index(drop=True)

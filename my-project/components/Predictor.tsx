@@ -5,14 +5,43 @@ import { predictFastAPI } from "@/lib/api";
 import { USE_MOCK, API_BASE } from "@/lib/config";
 import type { PredictOut } from "@/types/predict";
 
+// Komponent do wyświetlania kółeczek z formą
+function FormBar({ form }: { form?: string[] }) {
+  if (!form || form.length === 0) return <span className="text-xs text-gray-500">Brak danych</span>;
+
+  return (
+    <div className="flex gap-1">
+      {form.map((res, i) => {
+        let color = "bg-gray-600";
+        if (res === "W") color = "bg-green-500";
+        if (res === "L") color = "bg-red-500";
+        
+        return (
+          <div
+            key={i}
+            className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white ${color}`}
+            title={res === "W" ? "Wygrana" : res === "L" ? "Przegrana" : "Remis"}
+          >
+            {res}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 async function mockPredict(home_team: string, away_team: string): Promise<PredictOut> {
   const seed = (home_team.length * 13 + away_team.length * 7) % 100;
   const home = 0.4 + (seed % 10) / 100;
   const away = 0.25 + ((seed + 3) % 10) / 100;
   const draw = Math.max(0, 1 - home - away);
-  const probs = { home, draw, away };
-  const label = home >= draw && home >= away ? "home" : draw >= away ? "draw" : "away";
-  return { label, probs };
+  return { 
+    label: home > away ? "home" : "away", 
+    probs: { home, draw, away },
+    // Mockowe dane formy, żebyś widział jak to wygląda bez backendu
+    home_form: ["W", "D", "W", "L", "W"],
+    away_form: ["L", "L", "D", "W", "L"]
+  };
 }
 
 export default function Predictor() {
@@ -25,7 +54,7 @@ export default function Predictor() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<PredictOut | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [useMock, setUseMock] = useState<boolean>(USE_MOCK); // start z .env
+  const [useMock, setUseMock] = useState<boolean>(USE_MOCK);
 
   const teams = league.teams;
   const filteredAway = useMemo(() => teams.filter(t => t !== home), [teams, home]);
@@ -37,7 +66,9 @@ export default function Predictor() {
     setError(null);
 
     try {
-      const body = { home_team: home, away_team: away };
+      // WAŻNE: Tutaj dodaliśmy league_id do zapytania
+      const body = { league_id: leagueId, home_team: home, away_team: away };
+      
       const data = useMock ? await mockPredict(home, away) : await predictFastAPI(body);
       setResult(data);
     } catch (err: any) {
@@ -48,28 +79,29 @@ export default function Predictor() {
   }
 
   return (
-    <div className="space-y-4">
-      <form onSubmit={onSubmit} className="bg-gray-800 text-gray-100 rounded-2xl shadow p-5 space-y-3">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Football Predictor MVP</h2>
-          <div className="flex items-center gap-3 text-xs text-gray-300">
-            <label className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={useMock}
-                onChange={(e) => setUseMock(e.target.checked)}
-              />
-              Użyj mock backend
-            </label>
-            {!useMock && <span className="opacity-80">API: {API_BASE}/api/predict</span>}
-          </div>
+    <div className="space-y-6">
+      {/* Formularz */}
+      <form onSubmit={onSubmit} className="bg-gray-800 text-gray-100 rounded-2xl shadow-lg p-6 space-y-5 border border-gray-700">
+        <div className="flex items-center justify-between border-b border-gray-700 pb-3">
+          <h2 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+            Football AI
+          </h2>
+          <label className="flex items-center gap-2 text-xs text-gray-400 cursor-pointer hover:text-gray-200 transition">
+            <input
+              type="checkbox"
+              checked={useMock}
+              onChange={(e) => setUseMock(e.target.checked)}
+              className="accent-blue-500"
+            />
+            Tryb Mock
+          </label>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          <div>
-            <label className="block text-sm font-medium mb-1">Liga</label>
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="space-y-2">
+            <label className="text-xs uppercase tracking-wider text-gray-400 font-semibold">Liga</label>
             <select
-              className="w-full rounded-xl border border-gray-700 bg-gray-900 p-2"
+              className="w-full rounded-lg border border-gray-600 bg-gray-900 p-3 focus:ring-2 focus:ring-blue-500 outline-none transition"
               value={leagueId}
               onChange={(e) => {
                 const id = e.target.value;
@@ -84,10 +116,10 @@ export default function Predictor() {
             </select>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-1">Gospodarz</label>
+          <div className="space-y-2">
+            <label className="text-xs uppercase tracking-wider text-gray-400 font-semibold">Gospodarz</label>
             <select
-              className="w-full rounded-xl border border-gray-700 bg-gray-900 p-2"
+              className="w-full rounded-lg border border-gray-600 bg-gray-900 p-3 focus:ring-2 focus:ring-blue-500 outline-none transition"
               value={home}
               onChange={(e) => setHome(e.target.value)}
               disabled={loading}
@@ -96,10 +128,10 @@ export default function Predictor() {
             </select>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-1">Goście</label>
+          <div className="space-y-2">
+            <label className="text-xs uppercase tracking-wider text-gray-400 font-semibold">Gość</label>
             <select
-              className="w-full rounded-xl border border-gray-700 bg-gray-900 p-2"
+              className="w-full rounded-lg border border-gray-600 bg-gray-900 p-3 focus:ring-2 focus:ring-blue-500 outline-none transition"
               value={away}
               onChange={(e) => setAway(e.target.value)}
               disabled={loading}
@@ -110,41 +142,67 @@ export default function Predictor() {
         </div>
 
         <button
-          className="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-50"
+          className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg shadow-blue-900/20"
           disabled={loading || home === away}
         >
-          {loading ? "Liczenie..." : "Przewiduj"}
+          {loading ? "Analizuję dane..." : "Oblicz prawdopodobieństwo"}
         </button>
 
         {error && (
-          <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-200">
+          <div className="rounded-lg bg-red-900/20 border border-red-500/50 p-3 text-sm text-red-200 text-center">
             {error}
           </div>
         )}
       </form>
 
-      <div className="bg-gray-800 text-gray-100 rounded-2xl shadow p-5">
-        <h3 className="font-semibold">Wynik predykcji</h3>
-        {!result && <p className="mt-2 text-sm text-gray-300">Brak danych. Uruchom predykcję.</p>}
-        {result && (
-          <div className="mt-3 space-y-3">
-            {(["home", "draw", "away"] as const).map((k) => (
-              <div key={k}>
-                <div className="flex justify-between text-sm">
-                  <span>{k === "home" ? "Gospodarze" : k === "draw" ? "Remis" : "Goście"}</span>
-                  <span className="tabular-nums">{Math.round(result.probs[k] * 100)}%</span>
-                </div>
-                <div className="mt-1 h-2 w-full rounded-full bg-gray-700">
-                  <div
-                    className="h-2 rounded-full bg-gray-100"
-                    style={{ width: `${Math.round(result.probs[k] * 100)}%` }}
-                  />
-                </div>
-              </div>
-            ))}
+      {/* Wyniki */}
+      {result && (
+        <div className="bg-gray-800 text-gray-100 rounded-2xl shadow-lg p-6 border border-gray-700 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          
+          {/* Sekcja Formy */}
+          <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-gray-700">
+            <div className="flex flex-col items-center space-y-2">
+              <span className="text-sm text-gray-400 font-medium">Forma Gospodarzy</span>
+              <FormBar form={result.home_form} />
+            </div>
+            <div className="flex flex-col items-center space-y-2">
+              <span className="text-sm text-gray-400 font-medium">Forma Gości</span>
+              <FormBar form={result.away_form} />
+            </div>
           </div>
-        )}
-      </div>
+
+          <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+            📊 Prognoza AI
+            <span className="text-xs font-normal text-gray-400 ml-auto">Ostatnie 5 meczów ma kluczowy wpływ</span>
+          </h3>
+          
+          <div className="space-y-4">
+            {(["home", "draw", "away"] as const).map((k) => {
+              const probability = Math.round(result.probs[k] * 100);
+              const isWinner = result.label === k;
+              
+              return (
+                <div key={k} className={`group ${isWinner ? "opacity-100" : "opacity-70 hover:opacity-100 transition"}`}>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className={isWinner ? "text-blue-400 font-bold" : "text-gray-300"}>
+                      {k === "home" ? "Gospodarze" : k === "draw" ? "Remis" : "Goście"}
+                    </span>
+                    <span className="tabular-nums font-mono">{probability}%</span>
+                  </div>
+                  <div className="h-3 w-full rounded-full bg-gray-700 overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all duration-1000 ease-out ${
+                        isWinner ? "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" : "bg-gray-500"
+                      }`}
+                      style={{ width: `${probability}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
