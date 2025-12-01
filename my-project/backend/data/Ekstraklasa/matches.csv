@@ -1,0 +1,307 @@
+date,home_team,away_team,home_goals,away_goals
+2023-07-21T16:00:00+00:00,Warta Poznań,Pogon Szczecin,0,1
+2023-07-21T18:30:00+00:00,Legia Warszawa,ŁKS Łódź,3,0
+2023-07-22T13:00:00+00:00,Stal Mielec,Cracovia Krakow,2,2
+2023-07-22T15:30:00+00:00,Raków Częstochowa,Jagiellonia,3,0
+2023-07-22T18:00:00+00:00,Piast Gliwice,Lech Poznan,1,2
+2023-07-23T13:00:00+00:00,Gornik Zabrze,Radomiak Radom,0,2
+2023-07-23T15:30:00+00:00,Zaglebie Lubin,Ruch Chorzów,2,1
+2023-07-23T18:00:00+00:00,Widzew Łódź,Puszcza Niepołomice,3,2
+2023-07-24T17:00:00+00:00,Korona Kielce,Slask Wroclaw,1,1
+2023-07-28T18:30:00+00:00,Ruch Chorzów,ŁKS Łódź,2,0
+2023-07-29T13:00:00+00:00,Warta Poznań,Gornik Zabrze,2,0
+2023-07-29T15:30:00+00:00,Jagiellonia,Puszcza Niepołomice,4,1
+2023-07-29T18:00:00+00:00,Slask Wroclaw,Zaglebie Lubin,1,2
+2023-07-30T13:00:00+00:00,Stal Mielec,Piast Gliwice,0,0
+2023-07-30T15:30:00+00:00,Lech Poznan,Radomiak Radom,2,0
+2023-07-30T18:00:00+00:00,Pogon Szczecin,Widzew Łódź,2,1
+2023-08-04T16:00:00+00:00,Jagiellonia,Widzew Łódź,2,1
+2023-08-04T18:30:00+00:00,ŁKS Łódź,Korona Kielce,2,1
+2023-08-05T13:00:00+00:00,Raków Częstochowa,Warta Poznań,2,2
+2023-08-05T15:30:00+00:00,Gornik Zabrze,Piast Gliwice,0,0
+2023-08-05T18:00:00+00:00,Radomiak Radom,Cracovia Krakow,0,1
+2023-08-06T15:30:00+00:00,Zaglebie Lubin,Lech Poznan,1,1
+2023-08-06T18:00:00+00:00,Legia Warszawa,Ruch Chorzów,3,0
+2023-08-07T17:00:00+00:00,Puszcza Niepołomice,Stal Mielec,1,0
+2023-08-11T16:00:00+00:00,Cracovia Krakow,Zaglebie Lubin,2,1
+2023-08-11T18:30:00+00:00,Piast Gliwice,Raków Częstochowa,2,1
+2023-08-12T13:00:00+00:00,Stal Mielec,Slask Wroclaw,3,1
+2023-08-12T15:30:00+00:00,Korona Kielce,Gornik Zabrze,0,1
+2023-08-12T18:00:00+00:00,Widzew Łódź,ŁKS Łódź,1,0
+2023-08-13T13:00:00+00:00,Pogon Szczecin,Radomiak Radom,0,2
+2023-08-13T15:30:00+00:00,Puszcza Niepołomice,Legia Warszawa,1,1
+2023-08-14T17:00:00+00:00,Warta Poznań,Ruch Chorzów,2,2
+2023-08-18T16:00:00+00:00,Zaglebie Lubin,Puszcza Niepołomice,1,0
+2023-08-18T18:30:00+00:00,Gornik Zabrze,Widzew Łódź,1,1
+2023-08-19T13:00:00+00:00,Radomiak Radom,Warta Poznań,3,2
+2023-08-19T15:30:00+00:00,Raków Częstochowa,Stal Mielec,2,0
+2023-08-19T18:00:00+00:00,Ruch Chorzów,Jagiellonia,0,1
+2023-08-20T13:00:00+00:00,ŁKS Łódź,Pogon Szczecin,1,0
+2023-08-20T15:30:00+00:00,Slask Wroclaw,Lech Poznan,3,1
+2023-08-20T18:00:00+00:00,Legia Warszawa,Korona Kielce,1,0
+2023-08-21T17:00:00+00:00,Cracovia Krakow,Piast Gliwice,1,1
+2023-08-25T16:00:00+00:00,Stal Mielec,Radomiak Radom,2,0
+2023-08-25T18:30:00+00:00,Widzew Łódź,Slask Wroclaw,0,2
+2023-08-26T13:00:00+00:00,Warta Poznań,Cracovia Krakow,0,0
+2023-08-26T15:30:00+00:00,Puszcza Niepołomice,ŁKS Łódź,2,1
+2023-08-26T18:00:00+00:00,Piast Gliwice,Ruch Chorzów,0,0
+2023-08-27T13:00:00+00:00,Korona Kielce,Zaglebie Lubin,2,0
+2023-08-27T15:30:00+00:00,Jagiellonia,Gornik Zabrze,4,1
+2023-08-30T16:30:00+00:00,Pogon Szczecin,Slask Wroclaw,0,2
+2023-09-01T16:00:00+00:00,ŁKS Łódź,Warta Poznań,0,2
+2023-09-01T18:30:00+00:00,Ruch Chorzów,Stal Mielec,1,1
+2023-09-02T13:00:00+00:00,Radomiak Radom,Piast Gliwice,1,1
+2023-09-02T15:30:00+00:00,Cracovia Krakow,Korona Kielce,0,0
+2023-09-02T18:00:00+00:00,Lech Poznan,Gornik Zabrze,1,1
+2023-09-03T10:30:00+00:00,Slask Wroclaw,Jagiellonia,2,1
+2023-09-03T13:00:00+00:00,Zaglebie Lubin,Pogon Szczecin,1,0
+2023-09-03T15:30:00+00:00,Legia Warszawa,Widzew Łódź,3,1
+2023-09-03T18:00:00+00:00,Raków Częstochowa,Puszcza Niepołomice,2,0
+2023-09-15T16:00:00+00:00,Puszcza Niepołomice,Slask Wroclaw,1,3
+2023-09-15T18:30:00+00:00,Gornik Zabrze,Ruch Chorzów,1,0
+2023-09-16T13:00:00+00:00,Pogon Szczecin,Korona Kielce,3,1
+2023-09-16T15:30:00+00:00,Raków Częstochowa,ŁKS Łódź,1,0
+2023-09-16T18:00:00+00:00,Piast Gliwice,Legia Warszawa,1,1
+2023-09-17T10:30:00+00:00,Jagiellonia,Radomiak Radom,3,2
+2023-09-17T13:00:00+00:00,Widzew Łódź,Cracovia Krakow,2,0
+2023-09-17T15:30:00+00:00,Warta Poznań,Lech Poznan,0,2
+2023-09-18T17:00:00+00:00,Stal Mielec,Zaglebie Lubin,4,2
+2023-09-22T16:00:00+00:00,Korona Kielce,Widzew Łódź,1,1
+2023-09-22T18:30:00+00:00,ŁKS Łódź,Jagiellonia,2,2
+2023-09-23T10:30:00+00:00,Radomiak Radom,Puszcza Niepołomice,1,1
+2023-09-23T13:00:00+00:00,Slask Wroclaw,Piast Gliwice,1,0
+2023-09-23T15:30:00+00:00,Cracovia Krakow,Pogon Szczecin,1,5
+2023-09-23T18:00:00+00:00,Lech Poznan,Stal Mielec,2,1
+2023-09-24T10:30:00+00:00,Zaglebie Lubin,Warta Poznań,1,0
+2023-09-24T13:00:00+00:00,Ruch Chorzów,Raków Częstochowa,3,5
+2023-09-24T15:30:00+00:00,Legia Warszawa,Gornik Zabrze,2,1
+2023-09-27T18:00:00+00:00,Pogon Szczecin,Legia Warszawa,3,4
+2023-09-28T18:00:00+00:00,Lech Poznan,Raków Częstochowa,4,1
+2023-09-29T16:00:00+00:00,Stal Mielec,Korona Kielce,2,3
+2023-09-29T18:30:00+00:00,Piast Gliwice,Widzew Łódź,3,2
+2023-09-30T13:00:00+00:00,ŁKS Łódź,Cracovia Krakow,0,2
+2023-09-30T15:30:00+00:00,Puszcza Niepołomice,Ruch Chorzów,2,2
+2023-09-30T18:00:00+00:00,Warta Poznań,Slask Wroclaw,0,1
+2023-10-01T13:00:00+00:00,Raków Częstochowa,Radomiak Radom,3,0
+2023-10-01T15:30:00+00:00,Pogon Szczecin,Lech Poznan,5,0
+2023-10-01T18:00:00+00:00,Jagiellonia,Legia Warszawa,2,0
+2023-10-02T17:00:00+00:00,Gornik Zabrze,Zaglebie Lubin,0,2
+2023-10-06T16:00:00+00:00,Korona Kielce,Warta Poznań,1,1
+2023-10-06T18:30:00+00:00,Lech Poznan,Puszcza Niepołomice,4,1
+2023-10-07T10:30:00+00:00,Radomiak Radom,ŁKS Łódź,3,0
+2023-10-07T13:00:00+00:00,Widzew Łódź,Stal Mielec,1,0
+2023-10-07T15:30:00+00:00,Zaglebie Lubin,Piast Gliwice,1,1
+2023-10-07T18:00:00+00:00,Ruch Chorzów,Pogon Szczecin,0,3
+2023-10-08T10:30:00+00:00,Slask Wroclaw,Gornik Zabrze,1,1
+2023-10-08T13:00:00+00:00,Cracovia Krakow,Jagiellonia,2,4
+2023-10-08T15:30:00+00:00,Legia Warszawa,Raków Częstochowa,1,2
+2023-10-20T16:00:00+00:00,Piast Gliwice,Pogon Szczecin,0,0
+2023-10-20T18:30:00+00:00,Jagiellonia,Zaglebie Lubin,3,0
+2023-10-21T13:00:00+00:00,Puszcza Niepołomice,Cracovia Krakow,1,1
+2023-10-21T15:30:00+00:00,Slask Wroclaw,Legia Warszawa,4,0
+2023-10-21T18:00:00+00:00,Lech Poznan,ŁKS Łódź,3,1
+2023-10-22T10:30:00+00:00,Radomiak Radom,Korona Kielce,1,1
+2023-10-22T15:30:00+00:00,Gornik Zabrze,Raków Częstochowa,2,1
+2023-10-23T17:00:00+00:00,Stal Mielec,Warta Poznań,0,1
+2023-10-24T16:00:00+00:00,Lech Poznan,Jagiellonia,3,3
+2023-10-27T16:00:00+00:00,Korona Kielce,Puszcza Niepołomice,5,3
+2023-10-27T18:30:00+00:00,ŁKS Łódź,Gornik Zabrze,0,5
+2023-10-28T10:30:00+00:00,Warta Poznań,Piast Gliwice,1,1
+2023-10-28T13:00:00+00:00,Pogon Szczecin,Jagiellonia,2,1
+2023-10-28T15:30:00+00:00,Cracovia Krakow,Lech Poznan,1,1
+2023-10-28T18:00:00+00:00,Ruch Chorzów,Slask Wroclaw,2,2
+2023-10-29T11:30:00+00:00,Zaglebie Lubin,Radomiak Radom,2,3
+2023-10-29T14:00:00+00:00,Legia Warszawa,Stal Mielec,1,3
+2023-10-29T16:30:00+00:00,Raków Częstochowa,Widzew Łódź,1,1
+2023-11-03T17:00:00+00:00,Piast Gliwice,Korona Kielce,0,0
+2023-11-03T19:30:00+00:00,Jagiellonia,Stal Mielec,4,0
+2023-11-04T14:00:00+00:00,Puszcza Niepołomice,Pogon Szczecin,0,2
+2023-11-04T16:30:00+00:00,Widzew Łódź,Warta Poznań,0,1
+2023-11-04T19:00:00+00:00,Lech Poznan,Ruch Chorzów,2,0
+2023-11-05T11:30:00+00:00,Slask Wroclaw,ŁKS Łódź,2,1
+2023-11-05T14:00:00+00:00,Raków Częstochowa,Zaglebie Lubin,5,0
+2023-11-05T16:30:00+00:00,Radomiak Radom,Legia Warszawa,0,1
+2023-11-06T18:00:00+00:00,Gornik Zabrze,Cracovia Krakow,1,0
+2023-11-10T17:00:00+00:00,Warta Poznań,Puszcza Niepołomice,0,2
+2023-11-10T19:30:00+00:00,Cracovia Krakow,Slask Wroclaw,0,1
+2023-11-11T14:00:00+00:00,ŁKS Łódź,Piast Gliwice,3,3
+2023-11-11T16:30:00+00:00,Zaglebie Lubin,Widzew Łódź,1,1
+2023-11-11T19:00:00+00:00,Korona Kielce,Jagiellonia,2,2
+2023-11-12T11:30:00+00:00,Stal Mielec,Gornik Zabrze,2,1
+2023-11-12T14:00:00+00:00,Pogon Szczecin,Raków Częstochowa,1,1
+2023-11-12T16:30:00+00:00,Legia Warszawa,Lech Poznan,0,0
+2023-11-13T18:00:00+00:00,Ruch Chorzów,Radomiak Radom,0,0
+2023-11-18T16:30:00+00:00,Widzew Łódź,Ruch Chorzów,2,1
+2023-11-24T17:00:00+00:00,ŁKS Łódź,Zaglebie Lubin,0,2
+2023-11-24T19:30:00+00:00,Jagiellonia,Piast Gliwice,0,0
+2023-11-25T14:00:00+00:00,Raków Częstochowa,Cracovia Krakow,1,1
+2023-11-25T16:30:00+00:00,Pogon Szczecin,Stal Mielec,2,3
+2023-11-25T19:00:00+00:00,Legia Warszawa,Warta Poznań,2,2
+2023-11-26T11:30:00+00:00,Puszcza Niepołomice,Gornik Zabrze,2,1
+2023-11-26T14:00:00+00:00,Ruch Chorzów,Korona Kielce,1,1
+2023-11-26T16:30:00+00:00,Lech Poznan,Widzew Łódź,1,3
+2023-11-27T18:00:00+00:00,Radomiak Radom,Slask Wroclaw,0,1
+2023-12-01T17:00:00+00:00,Warta Poznań,Jagiellonia,1,2
+2023-12-01T19:30:00+00:00,Gornik Zabrze,Pogon Szczecin,1,0
+2023-12-02T16:30:00+00:00,Widzew Łódź,Radomiak Radom,0,3
+2023-12-02T19:00:00+00:00,Korona Kielce,Lech Poznan,0,1
+2023-12-03T11:30:00+00:00,Cracovia Krakow,Ruch Chorzów,4,4
+2023-12-03T14:00:00+00:00,Zaglebie Lubin,Legia Warszawa,0,3
+2023-12-03T16:30:00+00:00,Slask Wroclaw,Raków Częstochowa,1,1
+2023-12-08T17:00:00+00:00,Ruch Chorzów,Zaglebie Lubin,2,2
+2023-12-08T19:30:00+00:00,Pogon Szczecin,Warta Poznań,3,3
+2023-12-09T14:00:00+00:00,Radomiak Radom,Gornik Zabrze,1,1
+2023-12-09T16:30:00+00:00,Cracovia Krakow,Stal Mielec,2,2
+2023-12-09T19:00:00+00:00,Slask Wroclaw,Korona Kielce,0,0
+2023-12-10T11:30:00+00:00,Lech Poznan,Piast Gliwice,0,1
+2023-12-10T14:00:00+00:00,ŁKS Łódź,Legia Warszawa,1,1
+2023-12-10T16:30:00+00:00,Jagiellonia,Raków Częstochowa,4,2
+2023-12-11T18:00:00+00:00,Puszcza Niepołomice,Widzew Łódź,1,0
+2023-12-15T17:00:00+00:00,Gornik Zabrze,Warta Poznań,3,0
+2023-12-15T19:30:00+00:00,Zaglebie Lubin,Slask Wroclaw,1,2
+2023-12-16T14:00:00+00:00,Puszcza Niepołomice,Jagiellonia,3,3
+2023-12-16T16:30:00+00:00,Widzew Łódź,Pogon Szczecin,1,2
+2023-12-16T19:00:00+00:00,Radomiak Radom,Lech Poznan,2,2
+2023-12-17T11:30:00+00:00,ŁKS Łódź,Ruch Chorzów,1,1
+2023-12-17T14:00:00+00:00,Raków Częstochowa,Korona Kielce,1,0
+2023-12-17T16:30:00+00:00,Legia Warszawa,Cracovia Krakow,2,0
+2023-12-18T18:00:00+00:00,Piast Gliwice,Stal Mielec,3,0
+2023-12-20T18:00:00+00:00,Cracovia Krakow,Legia Warszawa,2,0
+2024-02-09T17:00:00+00:00,Stal Mielec,Puszcza Niepołomice,2,1
+2024-02-09T19:30:00+00:00,Ruch Chorzów,Legia Warszawa,0,1
+2024-02-10T14:00:00+00:00,Cracovia Krakow,Radomiak Radom,6,0
+2024-02-10T16:30:00+00:00,Piast Gliwice,Gornik Zabrze,1,3
+2024-02-10T19:00:00+00:00,Lech Poznan,Zaglebie Lubin,2,0
+2024-02-11T11:30:00+00:00,Warta Poznań,Raków Częstochowa,2,1
+2024-02-11T14:00:00+00:00,Widzew Łódź,Jagiellonia,1,3
+2024-02-11T16:30:00+00:00,Slask Wroclaw,Pogon Szczecin,0,1
+2024-02-12T18:00:00+00:00,Korona Kielce,ŁKS Łódź,2,1
+2024-02-16T17:00:00+00:00,Radomiak Radom,Pogon Szczecin,0,4
+2024-02-16T19:30:00+00:00,Slask Wroclaw,Stal Mielec,0,1
+2024-02-17T14:00:00+00:00,Ruch Chorzów,Warta Poznań,0,0
+2024-02-17T16:30:00+00:00,Jagiellonia,Lech Poznan,1,2
+2024-02-17T19:00:00+00:00,Raków Częstochowa,Piast Gliwice,3,1
+2024-02-18T11:30:00+00:00,Zaglebie Lubin,Cracovia Krakow,1,1
+2024-02-18T14:00:00+00:00,Legia Warszawa,Puszcza Niepołomice,1,1
+2024-02-18T16:30:00+00:00,ŁKS Łódź,Widzew Łódź,0,2
+2024-02-19T18:00:00+00:00,Gornik Zabrze,Korona Kielce,3,1
+2024-02-23T17:00:00+00:00,Piast Gliwice,Cracovia Krakow,0,0
+2024-02-23T19:30:00+00:00,Pogon Szczecin,ŁKS Łódź,4,2
+2024-02-24T14:00:00+00:00,Jagiellonia,Ruch Chorzów,1,1
+2024-02-24T16:30:00+00:00,Lech Poznan,Slask Wroclaw,0,0
+2024-02-24T19:00:00+00:00,Stal Mielec,Raków Częstochowa,0,0
+2024-02-25T11:30:00+00:00,Puszcza Niepołomice,Zaglebie Lubin,2,2
+2024-02-25T14:00:00+00:00,Widzew Łódź,Gornik Zabrze,3,1
+2024-02-25T16:30:00+00:00,Korona Kielce,Legia Warszawa,3,3
+2024-02-26T18:00:00+00:00,Warta Poznań,Radomiak Radom,0,0
+2024-02-28T17:30:00+00:00,Stal Mielec,ŁKS Łódź,1,0
+2024-03-01T17:00:00+00:00,Cracovia Krakow,Warta Poznań,0,1
+2024-03-01T19:30:00+00:00,Ruch Chorzów,Piast Gliwice,3,0
+2024-03-02T14:00:00+00:00,Gornik Zabrze,Jagiellonia,2,1
+2024-03-02T16:30:00+00:00,Slask Wroclaw,Widzew Łódź,2,1
+2024-03-02T19:00:00+00:00,Legia Warszawa,Pogon Szczecin,1,1
+2024-03-03T11:30:00+00:00,ŁKS Łódź,Puszcza Niepołomice,3,2
+2024-03-03T14:00:00+00:00,Zaglebie Lubin,Korona Kielce,1,0
+2024-03-03T16:30:00+00:00,Raków Częstochowa,Lech Poznan,4,0
+2024-03-04T18:00:00+00:00,Radomiak Radom,Stal Mielec,2,1
+2024-03-08T17:00:00+00:00,Piast Gliwice,Radomiak Radom,2,3
+2024-03-08T19:30:00+00:00,Jagiellonia,Slask Wroclaw,3,1
+2024-03-09T14:00:00+00:00,Korona Kielce,Cracovia Krakow,1,1
+2024-03-09T16:30:00+00:00,Puszcza Niepołomice,Raków Częstochowa,1,1
+2024-03-09T19:00:00+00:00,Gornik Zabrze,Lech Poznan,0,0
+2024-03-10T11:30:00+00:00,Stal Mielec,Ruch Chorzów,3,1
+2024-03-10T14:00:00+00:00,Pogon Szczecin,Zaglebie Lubin,0,2
+2024-03-10T16:30:00+00:00,Widzew Łódź,Legia Warszawa,1,0
+2024-03-11T18:00:00+00:00,Warta Poznań,ŁKS Łódź,0,1
+2024-03-12T17:30:00+00:00,Piast Gliwice,Puszcza Niepołomice,1,0
+2024-03-13T17:30:00+00:00,Korona Kielce,Raków Częstochowa,0,2
+2024-03-15T17:00:00+00:00,Zaglebie Lubin,Stal Mielec,0,0
+2024-03-15T19:30:00+00:00,Lech Poznan,Warta Poznań,2,0
+2024-03-16T11:30:00+00:00,Cracovia Krakow,Widzew Łódź,2,2
+2024-03-16T14:00:00+00:00,Radomiak Radom,Jagiellonia,0,2
+2024-03-16T16:30:00+00:00,Ruch Chorzów,Gornik Zabrze,1,2
+2024-03-16T19:00:00+00:00,Slask Wroclaw,Puszcza Niepołomice,0,0
+2024-03-17T11:30:00+00:00,Korona Kielce,Pogon Szczecin,2,2
+2024-03-17T14:00:00+00:00,ŁKS Łódź,Raków Częstochowa,1,1
+2024-03-17T16:30:00+00:00,Legia Warszawa,Piast Gliwice,3,1
+2024-03-30T11:30:00+00:00,Raków Częstochowa,Ruch Chorzów,1,1
+2024-03-30T14:00:00+00:00,Jagiellonia,ŁKS Łódź,6,0
+2024-03-30T16:30:00+00:00,Piast Gliwice,Slask Wroclaw,2,2
+2024-03-30T19:00:00+00:00,Pogon Szczecin,Cracovia Krakow,3,1
+2024-04-01T10:30:00+00:00,Puszcza Niepołomice,Radomiak Radom,1,1
+2024-04-01T13:00:00+00:00,Stal Mielec,Lech Poznan,0,0
+2024-04-01T15:30:00+00:00,Widzew Łódź,Korona Kielce,3,1
+2024-04-01T18:00:00+00:00,Gornik Zabrze,Legia Warszawa,1,3
+2024-04-02T17:00:00+00:00,Warta Poznań,Zaglebie Lubin,1,1
+2024-04-05T16:00:00+00:00,Cracovia Krakow,ŁKS Łódź,2,2
+2024-04-05T18:30:00+00:00,Radomiak Radom,Raków Częstochowa,2,1
+2024-04-06T13:00:00+00:00,Korona Kielce,Stal Mielec,1,0
+2024-04-06T15:30:00+00:00,Ruch Chorzów,Puszcza Niepołomice,0,0
+2024-04-06T18:00:00+00:00,Slask Wroclaw,Warta Poznań,2,1
+2024-04-07T10:30:00+00:00,Widzew Łódź,Piast Gliwice,1,0
+2024-04-07T13:00:00+00:00,Lech Poznan,Pogon Szczecin,1,0
+2024-04-07T15:30:00+00:00,Legia Warszawa,Jagiellonia,1,1
+2024-04-08T17:00:00+00:00,Zaglebie Lubin,Gornik Zabrze,1,2
+2024-04-12T16:00:00+00:00,Warta Poznań,Korona Kielce,1,0
+2024-04-12T18:30:00+00:00,Pogon Szczecin,Ruch Chorzów,5,0
+2024-04-13T13:00:00+00:00,Stal Mielec,Widzew Łódź,0,0
+2024-04-13T15:30:00+00:00,Puszcza Niepołomice,Lech Poznan,2,1
+2024-04-13T18:00:00+00:00,Raków Częstochowa,Legia Warszawa,1,1
+2024-04-14T10:30:00+00:00,ŁKS Łódź,Radomiak Radom,3,2
+2024-04-14T13:00:00+00:00,Jagiellonia,Cracovia Krakow,1,3
+2024-04-14T15:30:00+00:00,Gornik Zabrze,Slask Wroclaw,2,0
+2024-04-15T17:00:00+00:00,Piast Gliwice,Zaglebie Lubin,2,0
+2024-04-19T16:00:00+00:00,Korona Kielce,Radomiak Radom,4,0
+2024-04-19T18:30:00+00:00,Raków Częstochowa,Gornik Zabrze,0,1
+2024-04-20T13:00:00+00:00,Pogon Szczecin,Piast Gliwice,0,2
+2024-04-20T15:30:00+00:00,Ruch Chorzów,Widzew Łódź,2,3
+2024-04-20T18:00:00+00:00,Zaglebie Lubin,Jagiellonia,1,2
+2024-04-21T10:30:00+00:00,Cracovia Krakow,Puszcza Niepołomice,0,1
+2024-04-21T13:00:00+00:00,ŁKS Łódź,Lech Poznan,2,3
+2024-04-21T15:30:00+00:00,Legia Warszawa,Slask Wroclaw,0,0
+2024-04-22T17:00:00+00:00,Warta Poznań,Stal Mielec,5,2
+2024-04-26T16:00:00+00:00,Piast Gliwice,Warta Poznań,2,0
+2024-04-26T18:30:00+00:00,Jagiellonia,Pogon Szczecin,2,2
+2024-04-27T13:00:00+00:00,Gornik Zabrze,ŁKS Łódź,4,1
+2024-04-27T15:30:00+00:00,Slask Wroclaw,Ruch Chorzów,2,3
+2024-04-27T18:00:00+00:00,Widzew Łódź,Raków Częstochowa,0,1
+2024-04-28T10:30:00+00:00,Radomiak Radom,Zaglebie Lubin,3,4
+2024-04-28T13:00:00+00:00,Stal Mielec,Legia Warszawa,1,3
+2024-04-28T15:30:00+00:00,Lech Poznan,Cracovia Krakow,0,0
+2024-04-29T17:00:00+00:00,Puszcza Niepołomice,Korona Kielce,1,1
+2024-05-03T16:00:00+00:00,Cracovia Krakow,Gornik Zabrze,5,0
+2024-05-03T18:30:00+00:00,Ruch Chorzów,Lech Poznan,2,1
+2024-05-04T13:00:00+00:00,ŁKS Łódź,Slask Wroclaw,1,2
+2024-05-04T15:30:00+00:00,Zaglebie Lubin,Raków Częstochowa,2,0
+2024-05-04T18:00:00+00:00,Stal Mielec,Jagiellonia,3,2
+2024-05-05T10:30:00+00:00,Warta Poznań,Widzew Łódź,2,1
+2024-05-05T13:00:00+00:00,Korona Kielce,Piast Gliwice,1,1
+2024-05-05T15:30:00+00:00,Legia Warszawa,Radomiak Radom,0,3
+2024-05-06T17:00:00+00:00,Pogon Szczecin,Puszcza Niepołomice,1,0
+2024-05-10T16:00:00+00:00,Piast Gliwice,ŁKS Łódź,4,0
+2024-05-10T18:30:00+00:00,Slask Wroclaw,Cracovia Krakow,4,0
+2024-05-11T13:00:00+00:00,Gornik Zabrze,Stal Mielec,1,1
+2024-05-11T15:30:00+00:00,Jagiellonia,Korona Kielce,3,0
+2024-05-11T18:00:00+00:00,Raków Częstochowa,Pogon Szczecin,2,1
+2024-05-12T10:30:00+00:00,Puszcza Niepołomice,Warta Poznań,1,0
+2024-05-12T13:00:00+00:00,Widzew Łódź,Zaglebie Lubin,1,3
+2024-05-12T15:30:00+00:00,Lech Poznan,Legia Warszawa,1,2
+2024-05-13T17:00:00+00:00,Radomiak Radom,Ruch Chorzów,0,2
+2024-05-17T16:00:00+00:00,Stal Mielec,Pogon Szczecin,0,0
+2024-05-17T18:30:00+00:00,Gornik Zabrze,Puszcza Niepołomice,1,1
+2024-05-18T13:00:00+00:00,Korona Kielce,Ruch Chorzów,2,0
+2024-05-18T15:30:00+00:00,Slask Wroclaw,Radomiak Radom,2,0
+2024-05-18T18:00:00+00:00,Piast Gliwice,Jagiellonia,1,1
+2024-05-19T10:30:00+00:00,Cracovia Krakow,Raków Częstochowa,2,0
+2024-05-19T13:00:00+00:00,Warta Poznań,Legia Warszawa,0,1
+2024-05-19T15:30:00+00:00,Widzew Łódź,Lech Poznan,1,1
+2024-05-20T17:00:00+00:00,Zaglebie Lubin,ŁKS Łódź,2,1
+2024-05-25T15:30:00+00:00,Jagiellonia,Warta Poznań,3,0
+2024-05-25T15:30:00+00:00,Legia Warszawa,Zaglebie Lubin,2,1
+2024-05-25T15:30:00+00:00,Lech Poznan,Korona Kielce,1,2
+2024-05-25T15:30:00+00:00,Pogon Szczecin,Gornik Zabrze,1,0
+2024-05-25T15:30:00+00:00,Puszcza Niepołomice,Piast Gliwice,1,0
+2024-05-25T15:30:00+00:00,Raków Częstochowa,Slask Wroclaw,1,2
+2024-05-25T15:30:00+00:00,ŁKS Łódź,Stal Mielec,3,2
+2024-05-25T15:30:00+00:00,Radomiak Radom,Widzew Łódź,1,3
+2024-05-25T15:30:00+00:00,Ruch Chorzów,Cracovia Krakow,2,0

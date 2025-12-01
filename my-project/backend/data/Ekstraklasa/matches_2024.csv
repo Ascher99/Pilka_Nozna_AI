@@ -1,0 +1,307 @@
+date,league,home_team,away_team,home_goals,away_goals
+2024-07-20T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Lech Poznań,0,1
+2024-07-23T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Raków Częstochowa,0,1
+2024-07-26T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Pogoń Szczecin,1,3
+2024-07-29T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Śląsk Wrocław,3,4
+2024-08-01T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Górnik Zabrze,0,2
+2024-08-04T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Cracovia,0,1
+2024-08-07T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Jagiellonia Białystok,3,0
+2024-08-10T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Piast Gliwice,1,2
+2024-08-13T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Zagłębie Lubin,0,0
+2024-08-16T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Radomiak Radom,3,3
+2024-08-19T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Widzew Łódź,0,1
+2024-08-22T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Stal Mielec,1,0
+2024-08-25T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Korona Kielce,3,0
+2024-08-28T00:00:00+00:00,Ekstraklasa,Legia Warszawa,ŁKS Łódź,0,4
+2024-08-31T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Ruch Chorzów,2,3
+2024-09-03T00:00:00+00:00,Ekstraklasa,Legia Warszawa,GKS Katowice,0,2
+2024-09-06T00:00:00+00:00,Ekstraklasa,Legia Warszawa,Arka Gdynia,3,2
+2024-09-09T00:00:00+00:00,Ekstraklasa,Lech Poznań,Legia Warszawa,2,4
+2024-09-12T00:00:00+00:00,Ekstraklasa,Lech Poznań,Raków Częstochowa,1,3
+2024-09-15T00:00:00+00:00,Ekstraklasa,Lech Poznań,Pogoń Szczecin,0,4
+2024-09-18T00:00:00+00:00,Ekstraklasa,Lech Poznań,Śląsk Wrocław,4,3
+2024-09-21T00:00:00+00:00,Ekstraklasa,Lech Poznań,Górnik Zabrze,0,1
+2024-09-24T00:00:00+00:00,Ekstraklasa,Lech Poznań,Cracovia,0,0
+2024-09-27T00:00:00+00:00,Ekstraklasa,Lech Poznań,Jagiellonia Białystok,4,1
+2024-09-30T00:00:00+00:00,Ekstraklasa,Lech Poznań,Piast Gliwice,4,4
+2024-10-03T00:00:00+00:00,Ekstraklasa,Lech Poznań,Zagłębie Lubin,2,4
+2024-10-06T00:00:00+00:00,Ekstraklasa,Lech Poznań,Radomiak Radom,3,2
+2024-10-09T00:00:00+00:00,Ekstraklasa,Lech Poznań,Widzew Łódź,1,3
+2024-10-12T00:00:00+00:00,Ekstraklasa,Lech Poznań,Stal Mielec,0,2
+2024-10-15T00:00:00+00:00,Ekstraklasa,Lech Poznań,Korona Kielce,2,2
+2024-10-18T00:00:00+00:00,Ekstraklasa,Lech Poznań,ŁKS Łódź,1,0
+2024-10-21T00:00:00+00:00,Ekstraklasa,Lech Poznań,Ruch Chorzów,0,3
+2024-10-24T00:00:00+00:00,Ekstraklasa,Lech Poznań,GKS Katowice,3,2
+2024-10-27T00:00:00+00:00,Ekstraklasa,Lech Poznań,Arka Gdynia,4,2
+2024-10-30T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Legia Warszawa,2,2
+2024-11-02T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Lech Poznań,3,4
+2024-11-05T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Pogoń Szczecin,4,2
+2024-11-08T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Śląsk Wrocław,2,3
+2024-11-11T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Górnik Zabrze,2,4
+2024-11-14T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Cracovia,3,1
+2024-11-17T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Jagiellonia Białystok,1,3
+2024-11-20T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Piast Gliwice,1,1
+2024-11-23T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Zagłębie Lubin,0,0
+2024-11-26T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Radomiak Radom,3,3
+2024-11-29T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Widzew Łódź,2,3
+2024-12-02T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Stal Mielec,0,3
+2024-12-05T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Korona Kielce,1,2
+2024-12-08T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,ŁKS Łódź,3,4
+2024-12-11T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Ruch Chorzów,3,0
+2024-12-14T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,GKS Katowice,2,4
+2024-12-17T00:00:00+00:00,Ekstraklasa,Raków Częstochowa,Arka Gdynia,4,0
+2024-12-20T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Legia Warszawa,0,4
+2024-12-23T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Lech Poznań,2,3
+2024-12-26T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Raków Częstochowa,3,1
+2024-12-29T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Śląsk Wrocław,0,4
+2025-01-01T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Górnik Zabrze,3,1
+2025-01-04T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Cracovia,2,4
+2025-01-07T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Jagiellonia Białystok,2,0
+2025-01-10T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Piast Gliwice,1,4
+2025-01-13T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Zagłębie Lubin,4,4
+2025-01-16T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Radomiak Radom,1,2
+2025-01-19T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Widzew Łódź,3,0
+2025-01-22T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Stal Mielec,4,2
+2025-01-25T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Korona Kielce,1,0
+2025-01-28T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,ŁKS Łódź,0,3
+2025-01-31T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Ruch Chorzów,0,3
+2025-02-03T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,GKS Katowice,2,1
+2025-02-06T00:00:00+00:00,Ekstraklasa,Pogoń Szczecin,Arka Gdynia,2,4
+2025-02-09T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Legia Warszawa,3,4
+2025-02-12T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Lech Poznań,4,2
+2025-02-15T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Raków Częstochowa,3,2
+2025-02-18T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Pogoń Szczecin,4,1
+2025-02-21T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Górnik Zabrze,3,2
+2025-02-24T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Cracovia,1,2
+2025-02-27T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Jagiellonia Białystok,3,0
+2025-03-02T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Piast Gliwice,4,4
+2025-03-05T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Zagłębie Lubin,0,0
+2025-03-08T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Radomiak Radom,1,0
+2025-03-11T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Widzew Łódź,1,0
+2025-03-14T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Stal Mielec,1,3
+2025-03-17T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Korona Kielce,4,2
+2025-03-20T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,ŁKS Łódź,1,3
+2025-03-23T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Ruch Chorzów,1,2
+2025-03-26T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,GKS Katowice,0,4
+2025-03-29T00:00:00+00:00,Ekstraklasa,Śląsk Wrocław,Arka Gdynia,4,1
+2025-04-01T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Legia Warszawa,2,3
+2025-04-04T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Lech Poznań,4,4
+2025-04-07T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Raków Częstochowa,0,3
+2025-04-10T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Pogoń Szczecin,4,4
+2025-04-13T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Śląsk Wrocław,4,1
+2025-04-16T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Cracovia,0,4
+2025-04-19T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Jagiellonia Białystok,4,2
+2025-04-22T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Piast Gliwice,2,0
+2025-04-25T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Zagłębie Lubin,4,1
+2025-04-28T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Radomiak Radom,4,1
+2025-05-01T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Widzew Łódź,1,3
+2025-05-04T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Stal Mielec,0,4
+2025-05-07T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Korona Kielce,2,1
+2025-05-10T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,ŁKS Łódź,1,2
+2025-05-13T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Ruch Chorzów,0,2
+2025-05-16T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,GKS Katowice,3,0
+2025-05-19T00:00:00+00:00,Ekstraklasa,Górnik Zabrze,Arka Gdynia,2,3
+2025-05-22T00:00:00+00:00,Ekstraklasa,Cracovia,Legia Warszawa,3,1
+2025-05-25T00:00:00+00:00,Ekstraklasa,Cracovia,Lech Poznań,2,1
+2025-05-28T00:00:00+00:00,Ekstraklasa,Cracovia,Raków Częstochowa,2,3
+2025-05-31T00:00:00+00:00,Ekstraklasa,Cracovia,Pogoń Szczecin,0,0
+2025-06-03T00:00:00+00:00,Ekstraklasa,Cracovia,Śląsk Wrocław,2,3
+2025-06-06T00:00:00+00:00,Ekstraklasa,Cracovia,Górnik Zabrze,0,3
+2025-06-09T00:00:00+00:00,Ekstraklasa,Cracovia,Jagiellonia Białystok,0,0
+2025-06-12T00:00:00+00:00,Ekstraklasa,Cracovia,Piast Gliwice,1,1
+2025-06-15T00:00:00+00:00,Ekstraklasa,Cracovia,Zagłębie Lubin,2,2
+2025-06-18T00:00:00+00:00,Ekstraklasa,Cracovia,Radomiak Radom,2,2
+2025-06-21T00:00:00+00:00,Ekstraklasa,Cracovia,Widzew Łódź,1,1
+2025-06-24T00:00:00+00:00,Ekstraklasa,Cracovia,Stal Mielec,4,3
+2025-06-27T00:00:00+00:00,Ekstraklasa,Cracovia,Korona Kielce,3,4
+2025-06-30T00:00:00+00:00,Ekstraklasa,Cracovia,ŁKS Łódź,3,1
+2025-07-03T00:00:00+00:00,Ekstraklasa,Cracovia,Ruch Chorzów,1,2
+2025-07-06T00:00:00+00:00,Ekstraklasa,Cracovia,GKS Katowice,1,1
+2025-07-09T00:00:00+00:00,Ekstraklasa,Cracovia,Arka Gdynia,3,4
+2025-07-12T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Legia Warszawa,3,0
+2025-07-15T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Lech Poznań,0,3
+2025-07-18T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Raków Częstochowa,2,2
+2025-07-21T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Pogoń Szczecin,3,2
+2025-07-24T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Śląsk Wrocław,1,4
+2025-07-27T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Górnik Zabrze,2,0
+2025-07-30T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Cracovia,2,2
+2025-08-02T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Piast Gliwice,4,0
+2025-08-05T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Zagłębie Lubin,3,2
+2025-08-08T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Radomiak Radom,1,4
+2025-08-11T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Widzew Łódź,3,1
+2025-08-14T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Stal Mielec,4,3
+2025-08-17T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Korona Kielce,3,0
+2025-08-20T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,ŁKS Łódź,4,0
+2025-08-23T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Ruch Chorzów,4,0
+2025-08-26T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,GKS Katowice,1,2
+2025-08-29T00:00:00+00:00,Ekstraklasa,Jagiellonia Białystok,Arka Gdynia,3,0
+2025-09-01T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Legia Warszawa,2,3
+2025-09-04T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Lech Poznań,0,2
+2025-09-07T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Raków Częstochowa,0,1
+2025-09-10T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Pogoń Szczecin,1,2
+2025-09-13T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Śląsk Wrocław,4,4
+2025-09-16T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Górnik Zabrze,1,1
+2025-09-19T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Cracovia,3,1
+2025-09-22T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Jagiellonia Białystok,3,1
+2025-09-25T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Zagłębie Lubin,4,3
+2025-09-28T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Radomiak Radom,2,0
+2025-10-01T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Widzew Łódź,4,2
+2025-10-04T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Stal Mielec,4,4
+2025-10-07T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Korona Kielce,0,2
+2025-10-10T00:00:00+00:00,Ekstraklasa,Piast Gliwice,ŁKS Łódź,1,0
+2025-10-13T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Ruch Chorzów,4,3
+2025-10-16T00:00:00+00:00,Ekstraklasa,Piast Gliwice,GKS Katowice,1,3
+2025-10-19T00:00:00+00:00,Ekstraklasa,Piast Gliwice,Arka Gdynia,2,1
+2025-10-22T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Legia Warszawa,4,2
+2025-10-25T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Lech Poznań,3,3
+2025-10-28T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Raków Częstochowa,3,4
+2025-10-31T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Pogoń Szczecin,3,1
+2025-11-03T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Śląsk Wrocław,1,1
+2025-11-06T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Górnik Zabrze,1,4
+2025-11-09T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Cracovia,3,4
+2025-11-12T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Jagiellonia Białystok,1,2
+2025-11-15T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Piast Gliwice,0,0
+2025-11-18T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Radomiak Radom,1,2
+2025-11-21T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Widzew Łódź,1,1
+2025-11-24T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Stal Mielec,3,2
+2025-11-27T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Korona Kielce,3,3
+2025-11-30T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,ŁKS Łódź,0,1
+2025-12-03T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Ruch Chorzów,4,1
+2025-12-06T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,GKS Katowice,0,1
+2025-12-09T00:00:00+00:00,Ekstraklasa,Zagłębie Lubin,Arka Gdynia,4,1
+2025-12-12T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Legia Warszawa,2,4
+2025-12-15T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Lech Poznań,3,0
+2025-12-18T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Raków Częstochowa,0,4
+2025-12-21T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Pogoń Szczecin,3,2
+2025-12-24T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Śląsk Wrocław,4,3
+2025-12-27T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Górnik Zabrze,0,3
+2025-12-30T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Cracovia,4,2
+2026-01-02T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Jagiellonia Białystok,1,4
+2026-01-05T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Piast Gliwice,1,3
+2026-01-08T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Zagłębie Lubin,2,2
+2026-01-11T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Widzew Łódź,4,1
+2026-01-14T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Stal Mielec,3,2
+2026-01-17T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Korona Kielce,4,3
+2026-01-20T00:00:00+00:00,Ekstraklasa,Radomiak Radom,ŁKS Łódź,2,0
+2026-01-23T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Ruch Chorzów,4,4
+2026-01-26T00:00:00+00:00,Ekstraklasa,Radomiak Radom,GKS Katowice,1,0
+2026-01-29T00:00:00+00:00,Ekstraklasa,Radomiak Radom,Arka Gdynia,0,0
+2026-02-01T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Legia Warszawa,3,3
+2026-02-04T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Lech Poznań,0,0
+2026-02-07T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Raków Częstochowa,4,2
+2026-02-10T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Pogoń Szczecin,4,4
+2026-02-13T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Śląsk Wrocław,2,4
+2026-02-16T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Górnik Zabrze,0,1
+2026-02-19T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Cracovia,1,4
+2026-02-22T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Jagiellonia Białystok,2,4
+2026-02-25T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Piast Gliwice,2,4
+2026-02-28T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Zagłębie Lubin,2,4
+2026-03-03T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Radomiak Radom,0,1
+2026-03-06T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Stal Mielec,2,1
+2026-03-09T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Korona Kielce,4,2
+2026-03-12T00:00:00+00:00,Ekstraklasa,Widzew Łódź,ŁKS Łódź,2,4
+2026-03-15T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Ruch Chorzów,1,4
+2026-03-18T00:00:00+00:00,Ekstraklasa,Widzew Łódź,GKS Katowice,4,2
+2026-03-21T00:00:00+00:00,Ekstraklasa,Widzew Łódź,Arka Gdynia,4,4
+2026-03-24T00:00:00+00:00,Ekstraklasa,Stal Mielec,Legia Warszawa,4,0
+2026-03-27T00:00:00+00:00,Ekstraklasa,Stal Mielec,Lech Poznań,0,0
+2026-03-30T00:00:00+00:00,Ekstraklasa,Stal Mielec,Raków Częstochowa,0,4
+2026-04-02T00:00:00+00:00,Ekstraklasa,Stal Mielec,Pogoń Szczecin,4,1
+2026-04-05T00:00:00+00:00,Ekstraklasa,Stal Mielec,Śląsk Wrocław,4,1
+2026-04-08T00:00:00+00:00,Ekstraklasa,Stal Mielec,Górnik Zabrze,0,3
+2026-04-11T00:00:00+00:00,Ekstraklasa,Stal Mielec,Cracovia,2,1
+2026-04-14T00:00:00+00:00,Ekstraklasa,Stal Mielec,Jagiellonia Białystok,2,1
+2026-04-17T00:00:00+00:00,Ekstraklasa,Stal Mielec,Piast Gliwice,1,1
+2026-04-20T00:00:00+00:00,Ekstraklasa,Stal Mielec,Zagłębie Lubin,0,3
+2026-04-23T00:00:00+00:00,Ekstraklasa,Stal Mielec,Radomiak Radom,4,4
+2026-04-26T00:00:00+00:00,Ekstraklasa,Stal Mielec,Widzew Łódź,0,2
+2026-04-29T00:00:00+00:00,Ekstraklasa,Stal Mielec,Korona Kielce,0,4
+2026-05-02T00:00:00+00:00,Ekstraklasa,Stal Mielec,ŁKS Łódź,0,3
+2026-05-05T00:00:00+00:00,Ekstraklasa,Stal Mielec,Ruch Chorzów,1,4
+2026-05-08T00:00:00+00:00,Ekstraklasa,Stal Mielec,GKS Katowice,0,0
+2026-05-11T00:00:00+00:00,Ekstraklasa,Stal Mielec,Arka Gdynia,2,2
+2026-05-14T00:00:00+00:00,Ekstraklasa,Korona Kielce,Legia Warszawa,0,4
+2026-05-17T00:00:00+00:00,Ekstraklasa,Korona Kielce,Lech Poznań,4,0
+2026-05-20T00:00:00+00:00,Ekstraklasa,Korona Kielce,Raków Częstochowa,4,4
+2026-05-23T00:00:00+00:00,Ekstraklasa,Korona Kielce,Pogoń Szczecin,2,0
+2026-05-26T00:00:00+00:00,Ekstraklasa,Korona Kielce,Śląsk Wrocław,3,2
+2026-05-29T00:00:00+00:00,Ekstraklasa,Korona Kielce,Górnik Zabrze,4,2
+2026-06-01T00:00:00+00:00,Ekstraklasa,Korona Kielce,Cracovia,0,2
+2026-06-04T00:00:00+00:00,Ekstraklasa,Korona Kielce,Jagiellonia Białystok,1,1
+2026-06-07T00:00:00+00:00,Ekstraklasa,Korona Kielce,Piast Gliwice,3,0
+2026-06-10T00:00:00+00:00,Ekstraklasa,Korona Kielce,Zagłębie Lubin,4,3
+2026-06-13T00:00:00+00:00,Ekstraklasa,Korona Kielce,Radomiak Radom,1,2
+2026-06-16T00:00:00+00:00,Ekstraklasa,Korona Kielce,Widzew Łódź,2,0
+2026-06-19T00:00:00+00:00,Ekstraklasa,Korona Kielce,Stal Mielec,2,1
+2026-06-22T00:00:00+00:00,Ekstraklasa,Korona Kielce,ŁKS Łódź,0,1
+2026-06-25T00:00:00+00:00,Ekstraklasa,Korona Kielce,Ruch Chorzów,3,1
+2026-06-28T00:00:00+00:00,Ekstraklasa,Korona Kielce,GKS Katowice,2,0
+2026-07-01T00:00:00+00:00,Ekstraklasa,Korona Kielce,Arka Gdynia,0,0
+2026-07-04T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Legia Warszawa,2,3
+2026-07-07T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Lech Poznań,2,2
+2026-07-10T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Raków Częstochowa,4,3
+2026-07-13T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Pogoń Szczecin,0,3
+2026-07-16T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Śląsk Wrocław,4,0
+2026-07-19T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Górnik Zabrze,3,0
+2026-07-22T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Cracovia,0,4
+2026-07-25T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Jagiellonia Białystok,4,4
+2026-07-28T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Piast Gliwice,2,4
+2026-07-31T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Zagłębie Lubin,1,1
+2026-08-03T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Radomiak Radom,4,0
+2026-08-06T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Widzew Łódź,4,3
+2026-08-09T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Stal Mielec,1,2
+2026-08-12T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Korona Kielce,4,1
+2026-08-15T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Ruch Chorzów,1,1
+2026-08-18T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,GKS Katowice,1,1
+2026-08-21T00:00:00+00:00,Ekstraklasa,ŁKS Łódź,Arka Gdynia,4,1
+2026-08-24T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Legia Warszawa,1,1
+2026-08-27T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Lech Poznań,1,3
+2026-08-30T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Raków Częstochowa,4,0
+2026-09-02T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Pogoń Szczecin,3,4
+2026-09-05T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Śląsk Wrocław,3,4
+2026-09-08T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Górnik Zabrze,4,2
+2026-09-11T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Cracovia,3,2
+2026-09-14T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Jagiellonia Białystok,1,4
+2026-09-17T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Piast Gliwice,1,1
+2026-09-20T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Zagłębie Lubin,2,2
+2026-09-23T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Radomiak Radom,2,3
+2026-09-26T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Widzew Łódź,3,4
+2026-09-29T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Stal Mielec,3,3
+2026-10-02T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Korona Kielce,2,1
+2026-10-05T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,ŁKS Łódź,4,2
+2026-10-08T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,GKS Katowice,2,1
+2026-10-11T00:00:00+00:00,Ekstraklasa,Ruch Chorzów,Arka Gdynia,3,0
+2026-10-14T00:00:00+00:00,Ekstraklasa,GKS Katowice,Legia Warszawa,1,2
+2026-10-17T00:00:00+00:00,Ekstraklasa,GKS Katowice,Lech Poznań,2,4
+2026-10-20T00:00:00+00:00,Ekstraklasa,GKS Katowice,Raków Częstochowa,0,1
+2026-10-23T00:00:00+00:00,Ekstraklasa,GKS Katowice,Pogoń Szczecin,1,1
+2026-10-26T00:00:00+00:00,Ekstraklasa,GKS Katowice,Śląsk Wrocław,3,4
+2026-10-29T00:00:00+00:00,Ekstraklasa,GKS Katowice,Górnik Zabrze,0,0
+2026-11-01T00:00:00+00:00,Ekstraklasa,GKS Katowice,Cracovia,2,1
+2026-11-04T00:00:00+00:00,Ekstraklasa,GKS Katowice,Jagiellonia Białystok,0,1
+2026-11-07T00:00:00+00:00,Ekstraklasa,GKS Katowice,Piast Gliwice,2,2
+2026-11-10T00:00:00+00:00,Ekstraklasa,GKS Katowice,Zagłębie Lubin,0,0
+2026-11-13T00:00:00+00:00,Ekstraklasa,GKS Katowice,Radomiak Radom,3,4
+2026-11-16T00:00:00+00:00,Ekstraklasa,GKS Katowice,Widzew Łódź,2,3
+2026-11-19T00:00:00+00:00,Ekstraklasa,GKS Katowice,Stal Mielec,1,4
+2026-11-22T00:00:00+00:00,Ekstraklasa,GKS Katowice,Korona Kielce,2,2
+2026-11-25T00:00:00+00:00,Ekstraklasa,GKS Katowice,ŁKS Łódź,3,0
+2026-11-28T00:00:00+00:00,Ekstraklasa,GKS Katowice,Ruch Chorzów,2,3
+2026-12-01T00:00:00+00:00,Ekstraklasa,GKS Katowice,Arka Gdynia,4,0
+2026-12-04T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Legia Warszawa,0,3
+2026-12-07T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Lech Poznań,0,0
+2026-12-10T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Raków Częstochowa,2,4
+2026-12-13T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Pogoń Szczecin,0,3
+2026-12-16T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Śląsk Wrocław,4,3
+2026-12-19T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Górnik Zabrze,2,4
+2026-12-22T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Cracovia,1,3
+2026-12-25T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Jagiellonia Białystok,4,3
+2026-12-28T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Piast Gliwice,0,0
+2026-12-31T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Zagłębie Lubin,2,0
+2027-01-03T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Radomiak Radom,1,4
+2027-01-06T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Widzew Łódź,2,0
+2027-01-09T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Stal Mielec,3,1
+2027-01-12T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Korona Kielce,1,2
+2027-01-15T00:00:00+00:00,Ekstraklasa,Arka Gdynia,ŁKS Łódź,0,1
+2027-01-18T00:00:00+00:00,Ekstraklasa,Arka Gdynia,Ruch Chorzów,2,4
+2027-01-21T00:00:00+00:00,Ekstraklasa,Arka Gdynia,GKS Katowice,2,4
