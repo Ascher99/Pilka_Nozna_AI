@@ -11,7 +11,6 @@ COLMAP = {
     "away_goals": ["away_goals", "FTAG", "AG", "away_score", "AwayGoals"],
 }
 
-# Słownik mapujący nazwy z CSV (klucz) na nazwy z Frontendu (wartość)
 TEAM_MAPPING = {
     "Man City": "Manchester City",
     "Man United": "Manchester United",
@@ -19,8 +18,8 @@ TEAM_MAPPING = {
     "Newcastle": "Newcastle United",
     "Leicester": "Leicester City",
     "Ipswich": "Ipswich Town",
-    "Wolverhampton": "Wolves", # Na wypadek gdyby w innym pliku było inaczej
-    "West Ham United": "West Ham", # Na wypadek innej wersji
+    "Wolverhampton": "Wolves",
+    "West Ham United": "West Ham",
 }
 
 def pick_col(df: pd.DataFrame, wanted: List[str]) -> str:
@@ -55,7 +54,6 @@ def load_matches_folder(folder: Path) -> pd.DataFrame:
             hg_col = pick_col(df, COLMAP["home_goals"])
             ag_col = pick_col(df, COLMAP["away_goals"])
 
-            # Obsługa daty z dayfirst=True (dla formatu DD/MM/YYYY w Premier League)
             if date_col:
                 date_series = pd.to_datetime(df[date_col], dayfirst=True, errors='coerce')
             else:
@@ -69,10 +67,8 @@ def load_matches_folder(folder: Path) -> pd.DataFrame:
                 "away_goals": pd.to_numeric(df[ag_col], errors="coerce").fillna(0).astype(int),
             })
             
-            # --- NORMALIZACJA NAZW (Mapowanie) ---
             out["home_team"] = out["home_team"].replace(TEAM_MAPPING)
             out["away_team"] = out["away_team"].replace(TEAM_MAPPING)
-            # -------------------------------------
 
             out = out.dropna(subset=["date"])
             frames.append(out)
@@ -84,7 +80,6 @@ def load_matches_folder(folder: Path) -> pd.DataFrame:
         return pd.DataFrame()
 
     all_df = pd.concat(frames, ignore_index=True)
-    # Filtrowanie błędnych wierszy
     all_df = all_df[all_df["home_team"].ne(all_df["away_team"])]
     all_df = all_df.dropna(subset=["home_team", "away_team"])
     

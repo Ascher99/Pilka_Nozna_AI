@@ -23,18 +23,15 @@ app.add_middleware(
 )
 
 class PredictIn(BaseModel):
-    league_id: str # Dodany parametr
+    league_id: str 
     home_team: str
     away_team: str
 
-# Globalny słownik przechowujący artefakty dla każdej ligi
-# models[league_id] = {'model': ..., 'scaler': ..., 'target_encoder': ...}
+
 models = {} 
-# Globalny słownik przechowujący statystyki dla każdej ligi
-# stats[league_id][team_name] = [avg_goals, avg_points]
+
 last_stats = {} 
-# Globalny słownik przechowujący historię W/D/L
-# histories[league_id][team_name] = ["W", "D", "L", "W", "D"]
+
 raw_histories = {}
 
 
@@ -65,18 +62,18 @@ def load_latest_stats_for_league(league_id: str, league_dir: Path) -> tuple[dict
             stats_history[h].append((hg, h_pts))
             stats_history[a].append((ag, a_pts))
             
-        final_form = {} # Słownik ze średnią formą (dane dla modelu)
-        histories = {}  # Słownik z historią W/D/L (dane dla frontendu)
+        final_form = {}
+        histories = {}  
 
         for team, history in stats_history.items():
             recent = history[-LAST_N:]
             
-            # 1. Dane dla modelu (średnie z ostatnich 5)
+          
             avg_g = sum(x[0] for x in recent) / len(recent) if recent else 0
             avg_p = sum(x[1] for x in recent) / len(recent) if recent else 0
             final_form[team] = [avg_g, avg_p]
 
-            # 2. Dane dla frontendu (W/D/L)
+            
             histories[team] = [pts_to_char(x[1]) for x in recent]
             
         return final_form, histories
@@ -93,7 +90,7 @@ def load_all_models():
 
     for f_path in model_files:
         p = Path(f_path)
-        # Oczekiwany format nazwy: model_ekstraklasa.pkl
+       
         league_id = p.stem.replace("model_", "")
         
         try:
@@ -121,9 +118,9 @@ def health():
 def predict(inp: PredictIn):
     league_id = inp.league_id.lower()
     
-    # 1. Weryfikacja czy model dla ligi istnieje
+   
     if league_id not in models:
-        # Ten warunek łapie Premier League dopóki nie dodasz danych CSV
+       
         print(f"⚠️ Brak modelu dla ligi {league_id}. Używam trybu MOCK.")
         return {
             "label": "draw", 
@@ -136,7 +133,7 @@ def predict(inp: PredictIn):
     current_stats = last_stats.get(league_id, {})
     current_histories = raw_histories.get(league_id, {})
 
-    # 2. Weryfikacja czy drużyny mają historię
+  
     h_form = current_stats.get(inp.home_team)
     a_form = current_stats.get(inp.away_team)
 
@@ -149,12 +146,12 @@ def predict(inp: PredictIn):
             "away_form": current_histories.get(inp.away_team, [])
         }
 
-    # 3. Predykcja AI
+   
     features = np.array([[ h_form[0], a_form[0], h_form[1], a_form[1] ]])
     features_scaled = model_artifacts["scaler"].transform(features)
     probs_raw = model_artifacts["model"].predict_proba(features_scaled)[0]
     
-    # Dekodowanie
+  
     classes = model_artifacts["model"].classes_
     class_labels = model_artifacts["target_encoder"].inverse_transform(classes)
     
@@ -164,7 +161,7 @@ def predict(inp: PredictIn):
         
     label = max(probs, key=probs.get)
     
-    # 4. Zwrócenie wyniku z historią
+
     return {
         "label": label, 
         "probs": probs,

@@ -26,8 +26,6 @@ def pts_to_char(pts: int) -> str:
     return "L"
 
 def calculate_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, list[str]]]:
-    # ... (kod funkcji calculate_features pozostaje bez zmian)
-    # Wklej całą funkcję z poprzedniego kroku:
 
     df = df.sort_values("date").reset_index(drop=True)
 
@@ -36,7 +34,7 @@ def calculate_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, list[s
     a_avg_goals = []
     h_avg_points = []
     a_avg_points = []
-    raw_histories = {} # Do zbierania historii W/D/L
+    raw_histories = {} 
 
     for idx, row in df.iterrows():
         home = row["home_team"]
@@ -64,17 +62,16 @@ def calculate_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, list[s
         h_pts = 3 if hg > ag else (1 if hg == ag else 0)
         a_pts = 3 if ag > hg else (1 if ag == hg else 0)
 
-        # Zapisujemy historię (gole, punkty)
+
         team_stats[home].append((hg, h_pts))
         team_stats[away].append((ag, a_pts))
 
-    # Obliczamy finalne historyczne W/D/L dla każdego zespołu
+
     for team, history in team_stats.items():
         recent = history[-LAST_N:]
-        # Konwertujemy punkty na literki
+
         raw_histories[team] = [pts_to_char(x[1]) for x in recent]
-    
-    # Przypisujemy obliczone kolumny do DataFrame
+
     df["h_form_goals"] = h_avg_goals
     df["a_form_goals"] = a_avg_goals
     df["h_form_points"] = h_avg_points
@@ -94,11 +91,11 @@ def train_for_league(league_id: str, league_dir: Path):
     print(f"\n=======================================================")
     print(f"🤖 Rozpoczynam trening dla Ligi: {league_id.upper()}")
     
-    # Ładowanie i inżynieria cech
+
     raw_df = load_matches_folder(league_dir)
     df, _ = calculate_features(raw_df)
     
-    # Usuwamy mecze z niepełną historią (cold start)
+
     df = df.iloc[LAST_N * 2:] 
 
     if len(df) < 50:
@@ -106,33 +103,30 @@ def train_for_league(league_id: str, league_dir: Path):
         return
 
     print(f"📊 Trenuję na {len(df)} meczach.")
-    
-    # 1. Enkoder etykiet
+
     target_enc = LabelEncoder()
     y = target_enc.fit_transform(df["target"])
 
-    # 2. Wybór cech i Skalowanie
+
     features = ["h_form_goals", "a_form_goals", "h_form_points", "a_form_points"]
     X = df[features].values
 
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
 
-    # 3. Podział na zbiór treningowy i testowy
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
-    # 4. Trening modelu
+
     model = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=2000)
     model.fit(X_train, y_train)
 
-    # 5. Ewaluacja
+
     y_pred = model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
     
     print(f"🏆 Skuteczność modelu (Accuracy): {acc:.2%}")
     print(classification_report(y_test, y_pred, target_names=target_enc.classes_))
-    
-    # 6. Zapis artefaktów
+
     to_save = {
         "model": model,
         "scaler": scaler,
@@ -144,7 +138,7 @@ def train_for_league(league_id: str, league_dir: Path):
 
 
 def main():
-    # 1. Znajdujemy wszystkie foldery lig w katalogu data/
+
     league_dirs = [d for d in DATA_DIR.iterdir() if d.is_dir() and d.name != '__pycache__']
     
     if not league_dirs:

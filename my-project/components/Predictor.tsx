@@ -5,7 +5,6 @@ import { predictFastAPI } from "@/lib/api";
 import { USE_MOCK, API_BASE } from "@/lib/config";
 import type { PredictOut } from "@/types/predict";
 
-// Komponent do wyświetlania kółeczek z formą
 function FormBar({ form }: { form?: string[] }) {
   if (!form || form.length === 0) return <span className="text-xs text-gray-500">Brak danych</span>;
 
@@ -38,7 +37,6 @@ async function mockPredict(home_team: string, away_team: string): Promise<Predic
   return { 
     label: home > away ? "home" : "away", 
     probs: { home, draw, away },
-    // Mockowe dane formy, żebyś widział jak to wygląda bez backendu
     home_form: ["W", "D", "W", "L", "W"],
     away_form: ["L", "L", "D", "W", "L"]
   };
@@ -66,7 +64,7 @@ export default function Predictor() {
     setError(null);
 
     try {
-      // WAŻNE: Tutaj dodaliśmy league_id do zapytania
+
       const body = { league_id: leagueId, home_team: home, away_team: away };
       
       const data = useMock ? await mockPredict(home, away) : await predictFastAPI(body);
