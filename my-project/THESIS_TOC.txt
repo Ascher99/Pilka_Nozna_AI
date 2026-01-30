@@ -1,0 +1,430 @@
+================================================================================
+                    SPIS TREŚCI
+          Projekt inteligentnej platformy do analizy i predykcji 
+                 wyników meczów piłkarskich
+================================================================================
+
+ROZDZIAŁ 1: WSTĘP
+─────────────────────────────────────────────────────────────────────────────────────────────────
+
+1.1 Problem badawczy i motywacja
+   Niniejszy rozdział przedstawia fundamentalne wyzwanie związane z przewidywaniem
+   wyników meczów piłkarskich ze względu na nieprzewidywalność tego sportu oraz
+   zjawisko, gdzie faworyci mają szansę na zwycięstwo. Motywacja wynika z połączenia
+   dwóch domen zainteresowań — piłki nożnej i sztucznej inteligencji — przy
+   jednoczesnym badaniu granic modelowania predykcjiwnego w analizie sportowej.
+   Omówione zostanie dlaczego perfekcyjna predykcja jest teoretycznie niemożliwa,
+   a dlaczego dążenie do wysokiej dokładności stanowi cenny wyzwanie inżynierski
+   i badawczy.
+
+1.2 Cel i teza pracy
+   Głównym celem jest zaprojektowanie i implementacja platformy przewidującej wyniki
+   meczów piłkarskich (wygrana/remis/przegrana) z wykorzystaniem technik uczenia
+   maszynowego. Teza pracy bada czy sztuczna inteligencja może skutecznie przewidywać
+   wyniki sportowe poprzez analizę danych historycznych i metryk formy drużyn, z
+   hipotezą, że cechy oparte na formie mogą osiągnąć dokładność znacznie wyższą od
+   losowego wyboru (33.33% dla klasyfikacji 3-klasowej). Ustanowione zostaną
+   szczegółowe kryteria sukcesu włączając progi dokładności >50% oraz wyjaśnienie
+   praktycznej wartości dla analityków piłkarskich, bukmacherów i kibiców.
+
+1.3 Zakres i ograniczenia
+   Niniejsze badania koncentrują się specyficznie na dwie ligi: Premier League
+   (20 drużyn, ~1650 meczów) i Ekstraklasę (16 drużyn, ~650 meczów) z
+   okresu 2021-2024. Zakres wyklucza predykcję meczów na żywo, analizę na
+   poziomie zawodników oraz czynniki kontekstowe takie jak kontuzje, zawieszenia lub warunki
+   atmosferyczne. Dokumentowane zostaną ograniczenia włączając poleganie wyłącznie na danych
+   historycznych, ręczne procesy aktualizacji danych oraz uproszczony zestaw cech (4 cechy oparte
+   na ostatnich 5 meczach).
+
+1.4 Wkład i innowacja
+   Praca wnosi praktyczną implementację end-to-end systemu predykcji piłkarskiej
+   łączącego nowoczesne technologie internetowe (Next.js, FastAPI) z klasycznym uczeniem
+   maszynowym (Regresja Logistyczna). Innowacje obejmują architekturę multi-modelową,
+   gdzie każda liga otrzymuje dedykowany wytrenowany model, własny komponent
+   wizualizacji Form Bar dla przyjaznego użytkowiście wyświetlania formy drużyn oraz
+   integrację pipeline ETL z automatyczną normalizacją nazw drużyn. Odróżnimy naszą
+   pracę od istniejących rozwiązań poprzez podkreślenie natury open-source, pełnej
+   implementacji full-stack oraz inżynierii cech opartej na formie.
+
+
+ROZDZIAŁ 2: ANALIZA DOMENY I STAN OBECNY
+─────────────────────────────────────────────────────────────────────────────────────────────
+
+2.1 Przegląd ekosystemu analizy piłkarskiej
+   Niniejsza sekcja przegląda aktualny krajobraz platform analizy piłkarskiej włączając
+   rozwiązania komercyjne takie jak SofaScore, FotMob oraz Opta, a także badania
+   akademickie w predykcji sportowej. Przeanalizowane zostaną funkcje te platform — statystyki
+   na żywo, oczekiwane gole (xG), mapy cieplne oraz algorytmy predykcjiwnne —
+   w celu zrozumienia standardów branżowych i identyfikacji luk, które nasza praca
+   adresuje. Analiza skupi się na tym, jak istniejące rozwiązania podchodzą do predykcji meczów
+   i co czyni naszą implementację unikatową pod względem prostoty i dostępności.
+
+2.2 Teoria piłkarska i metryki wydajności
+   Omówione zostaną fundamentalne pojęcia analityki piłkarskiej włączając Oczekiwane Gołe
+   (xG), statystyki posiadania piłki, celność strzałów oraz metryki formy drużyn.
+   Sekcja obejmie to, jak te metryki korelują się z wynikami meczów oraz dlaczego pewne
+   statystyki są bardziej predykcyjne niż inne (np. gole strzelone vs. strzały celne).
+   Szczególną uwagę poświęcimy formie drużyn — ostatnie 5 meczów — jako naszej
+   głównej cechy, wyjaśniając teorię piłkarską wspierającą dlaczego ostatnie osiągnięcia są
+   wskazówką przyszłych wyników przy jednoczesnym uznaaniu ograniczeń tego podejścia.
+
+2.3 Prace pokrewne w predykcji sportowej
+   Niniejsza podsekcja przegląda literaturę akademicką dotyczącą predykcji sportowej
+   włączając studia wykorzystujące regresję logistyczną, sieci neuronowe oraz metody zintegrowane
+   do piłki nożnej, koszykówki i innych sportów. Porównane zostaną współczynniki dokładności
+   osiągnięte w poprzednich badaniach (zwykle 45-60% dla predykcji piłkarskiej) oraz
+   omówiona ewolucja od prostych modeli statystycznych do nowoczesnych metod uczenia maszynowego.
+   Analiza zidentyfikuje luki w istniejącej literaturze, takie jak brak przyjaznych
+   użytkowiście narzędzi wizualizacyjnych oraz potrzeba systemów predykcjiwnych opartych na
+   formie w czasie rzeczywistym.
+
+2.4 Krytyczna analiza istniejących rozwiązań
+   Przeprowadzimy szczegółowe porównanie istniejących metodologii predykcji, włączając
+   ich zalety (wysoka dokładność przy skomplikowanych modelach) oraz słabości (brak
+   interpretowalności, kosztowne źródła danych, zastrzeżone algorytmy). Sekcja
+   argumentuje, że podczas gdy pewne rozwiązania osiągają lepszą dokładność poprzez zaawansowane cechy
+   takie jak oceny zawodników oraz analiza taktyczna, często poświęcają przezrozystość i
+   używalność. Nasza praca proponuje podejście zbalansowane — umiarkowana dokładność z pełną
+   przerozystością, implementacją open-source oraz intuicyjnym interfejsem użytkownika.
+
+
+ROZDZIAŁ 3: PODSTAWY AI/ML
+───────────────────────────────────────────────────────────────────────────────────────────
+
+3.1 Paradigmy uczenia maszynowego do predykcji sportowej
+   Niniejsza sekcja wprowadza uczenie nadzorowane jako główny paradigmat dla naszego zadania,
+   wyjaśniając jak historyczne dane meczów służą jako oznaczone przykłady treningowe
+   (cechy → wynik). Porównamy uczenie nadzorowane z podejściami nie nadzorowanymi oraz
+   uczącym ze wzmocnieniem, uzasadniając dlaczego uczenie nadzorowane jest odpowiednie do
+   predykcji meczów ze względu na dostępność oznaczonych danych historycznych. Wyjaśnienie obejmie
+   kluczowe pojęcia włączając trening, walidacja oraz podział testowy, zapobieganie
+   nadmiernemu dopasowaniu oraz znaczenie inżynierii cech.
+
+3.2 Regresja logistyczna: teoria i uzasadnienie
+   Przedstawimy matematyczne wyjaśnienie regresji logistycznej wieloklasowej, włączając
+   funkcję sigmoidalną, normalizację softmax oraz interpretację prawdopodobieństwa dla
+   klasyfikacji wieloklasowej (gospodarz/remis/gość). Sekcja wyjaśnia dlaczego regresja
+   logistyczna została wybrana nad bardziej złożonymi algorytmami — interpretowalność,
+   szybki trening oraz wystarczająca wydajność dla liniowo separowanych wzorców danych.
+   Omówione zostaną zalety modelu (przerozyste wyjścia prawdopodobieństwa, analiza ważności cech)
+   oraz ograniczenia (niemożność wychwywania nieliniowych relacji bez inżynierii cech).
+
+3.3 Feature engineering do predykcji piłkarskiej
+   Niniejsza podsekcja szczegółowo opisuje cztery cechy użyte w naszej implementacji:
+   średnia goli gospodarzy (ostatnie 5 meczów), średnia goli gości (ostatnie 5 meczów),
+   średnia punktów gospodarzy (ostatnie 5 meczów) oraz średnia punktów gości
+   (ostatnie 5 meczów). Wyjaśnimy uzasadnienie piłkarskie za każdą cechę, w jaki sposób
+   zostały wybrane na podstawie wiedzy domenowej oraz dlaczego są bardziej predykcyjne niż surowe
+   dane historyczne. Sekcja omówi również potencjalne dodatkowe cechy (rekordy H2H,
+   różnica goli, punkty rankingowe) które zostały wykluczone ze względu na dostępność
+   danych oraz ograniczenia złożoności.
+
+3.4 Przygotowanie danych: pipeline ETL
+   Wyjaśnimy proces Extract, Transform, Load (ETL) zaimplementowany w projekcie,
+   włączając ekstrakcję danych z football-data.co.uk (Premier League) oraz źródeł ręcznych
+   (Ekstraklasa). Sekcja obejmie czyszczenie danych (usunięcie duplikatów,
+   obsługa brakujących wartości), transformację (parsowanie dat, normalizacja nazw drużyn,
+   obliczanie cech) oraz ładowanie do strukturyzowanych plików CSV przechowywanych
+   według sezonu. Szczegółowo opiszemy proces normalizacji, gdzie nazwy drużyn takie jak
+   "Man City" są mapowane na "Manchester City" w celu zapewnienia spójności między zbiorami
+   danych.
+
+3.5 Normalizacja i przetwarzanie danych
+   Sekcja ta opisuje techniczną implementację StandardScaler z scikit-learn, wyjaśniając w jaki
+   sposób normalizuje cechy do średniej zero i wariancji jednostkowej w celu zapewnienia
+   równego wkładu wszystkich cech do modelu regresji logistycznej. Omówione zostanie dlaczego
+   normalizacja jest krytyczna dla algorytmów wykorzystujących optymalizację gradientowym
+   i w jaki sposób zapobiega dominacji cech z większymi skalami (np. gole: 0-5) nad
+   cechami z mniejszymi skalami (np. punkty na mecz: 0-3). Sekcja obejmie również
+   LabelEncoder do konwersji etykiet wyników (gospodarz/remis/gość) na wartości
+   liczbowe (0/1/2).
+
+
+ROZDZIAŁ 4: PROJEKTOWANIE SYSTEMU I ARCHITEKTURA
+─────────────────────────────────────────────────────────────────────────────────────
+
+4.1 Przegląd architektury wysokiego poziomu
+   Przedstawimy kompleksowy diagram architektury pokazujący separację między frontendem
+   (aplikacja Next.js działająca na porcie 3000) oraz backendem (serwer FastAPI działający
+   na porcie 8000), połączonych poprzez REST API przez HTTP. Diagram zilustruje
+   architekturę wielowarstwową: klient (komponenty React), serwer (endpunkty FastAPI)
+   oraz warstwa danych (pliki CSV oraz wytrenowane modele ML). Wyjaśnimy uzasadnienie
+   dla tej separacji — niezależne tworzenie, skalownalność oraz różnorodność technologiczna
+   (JavaScript/TypeScript dla UI, Python dla ML).
+
+4.2 Architektura backend: FastAPI i pipeline ML
+   Sekcja ta szczegółowo opisuje implementację backendu wykorzystującego FastAPI,
+   asynchroniczny framework Pythonowy wybrany ze względu na szybkość, automatyczną dokumentację
+   OpenAPI oraz bezproblemową integrację z bibliotekami nauki o danych (pandas,
+   scikit-learn). Opiszemy architekturę multi-modelową, gdzie katalog 'models/'
+   zawiera osobne pliki pickle dla każdej ligi ('model_premier.pkl', 'model_ekstraklasa.pkl'),
+   pozwalając aplikacji ładować ligi-specyficzne modele przy starcie. Sekcja obejmie
+   proces inicjalizacji, cache'owanie modeli oraz pre-obliczanie statystyk dla optymalnych
+   czasów odpowiedzi.
+
+4.3 Architektura frontend: Next.js i React
+   Wyjaśnimy architekturę frontendu zbudowaną na Next.js 16 z App Router,
+   wykorzystującą Renderowanie po Stronie Serwerze (SSR) dla optymalizacji SEO oraz komponenty
+   React po stronie klienta dla interaktywności. Sekcja szczegółowo opisuje hierarchię
+   komponentów włączając główny komponent Predictor, wizualizację Form Bar oraz
+   wielorazowe komponenty UI (Select, Button, Card). Omówione zostanie wykorzystanie TypeScript
+   dla statycznej kontroli typów, Tailwind CSS dla stylizacji utility-first oraz zarządzanie
+   stanem przy użyciu haków React (useState, useMemo).
+
+4.4 Przechowywanie danych i schemat
+   Sekcja ta opisuje architekturę przechowywania danych, która wykorzystuje płaskie pliki CSV
+   zorganizowane według ligi i sezonu w 'backend/data/premier/' oraz
+   'backend/data/Ekstraklasa/'. Szczegółowo opiszemy schemat plików meczowych włączając
+   kolumny dla daty, gospodarz, gość, g gospodarzy, goli gości oraz dodatkowe
+   kolumny statystyczne ze źródeł danych. Sekcja wyjaśnia konwencje nazywania plików
+   ('matches_2021.csv', 'matches_current_season.csv') oraz omawia kompromisy między plikami CSV a
+   bazami danych relacyjnych (prostota vs. elastyczność zapytań, ręczne aktualizacje vs.
+   automatyczna ingesjcja).
+
+4.5 Projektowanie API i komunikacja
+   Przedstawimy endpunkty REST API włączając 'POST /api/predict' dla predykcji meczów
+   oraz 'GET /health' dla sprawdzeń stanu systemu. Sekcja szczegółowo opisuje format
+   zapytań/odpowiedzi wykorzystujący JSON, włączając schemat PredictIn (league_id,
+   home_team, away_team) oraz schemat PredictOut (label, probs, home_form, away_form).
+   Wyjaśnimy strategie obsługi błędów, konfigurację CORS dla zapytań
+   cross-origin z localhost:3000 do 127.0.0.1:8000 oraz tryb awaryjny mock
+   gdy backend jest niedostępny.
+
+4.6 Przepływ danych i pipeline przetwarzania
+   Sekcja ta dostarcza opis krok po kroku przepływu predykcji:
+   (1) Użytkownik wybiera ligę i drużyny w interfejsie,
+   (2) Frontend wysyła zapytanie POST do '/api/predict',
+   (3) Backend ładuje ligi-specyficzny model oraz pre-obliczone statystyki drużyn,
+   (4) Cechy są wyodrębniane z ostatnich 5 meczów dla obu drużyn,
+   (5) Cechy są normalizowane przy użyciu StandardScaler,
+   (6) LogisticRegression.predict_proba() zwraca prawdopodobieństwa,
+   (7) Odpowiedź jest odsyłana z powrotem do frontendu,
+   (8) Frontend wyświetla wizualizację Form Bar oraz procenty prawdopodobieństwa.
+   Zilustrujemy ten przepływ diagramem sekwencyjnym.
+
+
+ROZDZIAŁ 5: SZCZEGÓŁOWY REALIZACJI
+─────────────────────────────────────────────────────────────────────────────────────────────
+
+5.1 Implementacja backend: Aplikacja FastAPI
+   Przedstawimy szczegółowe wyjaśnienie na poziomie kodu 'backend/main.py', włączając
+   inicjalizację aplikacji FastAPI, konfigurację middleware CORS z obsługą zmiennych
+   środowiskowych dla 'ALLOWED_ORIGINS' oraz modele Pydantic do walidacji zapytań.
+   Sekcja opisuje funkcję 'load_all_models()' która skanuje katalog 'models/',
+   ładuje wytrenowane modele przy użyciu joblib oraz pre-oblicza statystyki drużyn przy
+   starcie. Omówimy również logikę endpunktu '/api/predict' włączając wybór modelu,
+   ekstrakcję cech oraz obliczanie prawdopodobieństwa z awaryjnym trybem mock
+   gdy modele są niedostępne.
+
+5.2 Implementacja ETL: Ingestcja danych i transformacja
+   Niniejsza podsekcja szczegółowo opisuje skrypt 'update_data.py' który automatyzuje
+   pobieranie danych z football-data.co.uk dla Premier League, włączając obsługiwanie błędów
+   dla zapytań HTTP oraz operacji plikowych. Wyjaśnimy moduł 'ml/utils.py' który
+   implementuje funkcję 'load_matches_folder()' do ładowania i scalania plików CSV,
+   funkcję 'pick_col()' do automatycznego mapowania kolumn między różnymi źródłami danych oraz
+   słownik 'TEAM_MAPPING' do normalizacji niespójnych nazw drużyn. Sekcja obejmie
+   logikę parsowania dat obsługującą zarówno formaty DD/MM/YYYY jak i MM/DD/YYYY.
+
+5.3 Implementacja treningu modelu ML
+   Opiszemy skrypt 'ml/train_model.py' który implementuje kompletny pipeline ML:
+   ładowanie danych, inżynieria cech przy użyciu funkcji 'calculate_features()',
+   podział trening/test (80/20), normalizacja StandardScaler, trening modelu
+   LogisticRegression z rozwiązywaczem multinomialnym oraz serializacja modelu przy użyciu joblib.
+   Sekcja wyjaśnia logikę obliczania formy, gdzie algorytm utrzymuje
+   średnią kroczącą goli i punktów dla każdej drużyny przez ostatnie N meczów (N=5).
+   Szczegółowo opiszemy wyjście metryk wydajności włączając dokładność, precyzję,
+   czułość oraz miarę F1 dla każdej klasy wyników.
+
+5.4 Implementacja frontend: Komponenty React
+   Sekcja ta dostarcza przejście kodu główne komponenty React:
+   'Predictor.tsx' (zarządzanie stanem z wyborem ligi/drużyn gosp/gość, integracja API
+   z 'predictFastAPI()'), komponent 'FormBar' (wizualizacja ostatnich 5 meczów z
+   kolorowymi wskaźnikami W/D/L) oraz komponenty wielorazowe (Select dropdown,
+   Button, Card). Wyjaśnimy definicje typów TypeScript w 'types/predict.ts'
+   dla schematów PredictIn i PredictOut, zapewniając bezpieczeństwo typów na granicy API.
+   Sekcja obejmuie również implementację trybu mock dla tworzenia bez backendu.
+
+5.5 Konfiguracja i zarządzanie środowiskiem
+   Udokumentujemy architekturę konfiguracji włączając 'lib/config.ts' dla frontend
+   (API_BASE, flagi USE_MOCK), obsługę zmiennych środowiskowych w backend
+   (ALLOWED_ORIGINS) oraz plik '.env.example' prezentujący konfigurację gotową
+   do produkcji. Sekcja wyjaśnia w jaki sposób różne konfiguracje są stosowane dla
+   tworzenia (CORS: "*", dostępny tryb mock) vs. produkcji (specyficzne
+   dozwolone źródła, bez trybu mock). Omówimy również zarządzanie pakietami
+   włączając 'requirements.txt' dla zależności Python oraz 'package.json' dla zależności Node.js.
+
+5.6 Strategia testowania i walidacja
+   Niniejsza podsekcja opisuje podejście do testowania włączając testy jednostkowe
+   dla treningu modelu ML (obliczanie cech, logika normalizacji), testy integracyjne
+   dla endpunktów API (POST /api/predict z prawidłowymi/nieprawidłowymi wejściami) oraz
+   testy komponentów frontend (renderowanie komponentów React, interakcje użytkownika). Wyjaśnimy
+   w jaki sposób system był walidowany przy użyciu danych historycznych z sezonów 2021-2024,
+   z ewaluacją wydajności na niewidzianych danych testowych. Sekcja obejmie również
+   obsługę przypadków brzegowych włączając nieznane drużyny, brakujące dane oraz
+   niedostępność API.
+
+
+ROZDZIAŁ 6: WYNIKI DOŚWIADCZALNE I EWALUACJA
+───────────────────────────────────────────────────────────────────────────────────────────
+
+6.1 Opis zbioru danych i przetwarzanie
+   Przedstawimy charakterystykę zbiorów danych użytych do treningu: Premier League
+   (38 meczów/sezon × 4 sezony = ~1650 meczów po filtrowaniu) oraz Ekstraklasa
+   (30 meczów/sezon × 4 sezony = ~650 meczów). Sekcja opisuje rozkład klas wyników
+   (ok. 45% wygranych gospodarzy, 30% remisów, 25% wygranych gości) i wyjaśnia
+   w jaki sposób ten niezbalans wpływa na trening modelu. Dokumentujemy również strategię podziału
+   danych (80% trening, 20% test) oraz okres danych historycznych użytych (sezony 2021-2024).
+
+6.2 Metryki wydajności modelu
+   Sekcja ta prezentuje ilościowe wyniki treningu modelu, włączając dokładność
+   (~52-54%), precyzję (~50-52%), czułość (~52-54%) oraz miarę F1 (~50-53%) dla
+   obu modeli Premier League oraz Ekstraklasa. Wyjaśnimy znaczenie osiągnięcia ~52%
+   dokładności w porównaniu do baselinu losowego 33.33% dla klasyfikacji
+   3-klasowej, demonstrując że podejście oparte na formie dostarcza istotną moc
+   predykcyjną. Sekcja obejmie szczegółowe raporty klasyfikacji pokazujące
+   wydajność dla każdej klasy (np. wygrane gospodarze: 57% czułość, remisy: 28%
+   czułość, wygrane goście: 51% czułość).
+
+6.3 Analiza porównawcza
+   Porównamy wydajność naszego modelu z modelami bazelinowymi (predykcja losowa,
+   predykcja klasy większości) oraz omówimy dlaczego nasze podejście przewyższa te
+   baseliny. Sekcja analizuje ważność cech poprzez badanie współczynników regresji
+   logistycznej, ujawniając które cechy (np. średnia punktów gospodarzy vs. średnia goli
+   gości) wnoszą największy wkład do predykcji. Porównamy również wydajność między
+   dwiema ligami, wyjaśniając potencjalne przyczyny różnic (np. Ekstraklasa ma
+   wyższą dokładność prawdopodobnie ze względu na bardziej przewidywalne dynamiki drużyn).
+
+6.4 Analiza błędów i ograniczenia
+   Niniejsza podsekcja analizuje błędy predykcji, identyfikując powszechne wzorce błędów
+   takie jak nad-predykcja wygranych gospodarzy, niedopredykcja remisów oraz słaba
+   wydajność na drużynach z fluktuującą formą. Przedstawimy przykłady błędnych
+   predykcji oraz omówimy czynniki przyczynowe (np. brak danych kontekstowych takich jak
+   kontuzje, niedawne zmiany w drużynie lub nietypowe okoliczności meczowe). Sekcja
+   omówi również ograniczenia okna 5-meczów formy oraz potencjalny wpływ używania
+   większego lub mniejszego okna.
+
+6.5 Ewaluacja doświadczenia użytkownika
+   Opiszemy jakościową ewaluację interfejsu użytkownika na podstawie testów
+   używalności, włączając informacja zwrotną o wizualizacji Form Bar
+   (intuicyjna, pomocna) oraz ogólną reaktywność aplikacji (szybkie odpowiedzi
+   API <200ms). Sekcja omówi wartość dostarczania procentów
+   prawdopodobieństwa wraz z predykcjami kategorialnymi, pomagając użytkownikom
+   zrozumieć pewność predykcji. Zaraportujemy również o efektywności trybu mock do
+   tworzenia i celów testowych.
+
+
+ROZDZIAŁ 7: WNIOSKI I PRZYSZŁOŚĆ
+────────────────────────────────────────────────────────────────────────────────────────────
+
+7.1 Podsumowanie osiągnięć
+   Sekcja ta podsumowuje kluczowe osiągnięcia pracy, włączając sukcesem implementacji
+   platformy predykcji piłkarskiej end-to-end, osiągnięcie ~52-54% dokładności
+   (znacznie ponad baselinę losową) oraz dostarczenie intuicyjnego interfejsu
+   użytkownika z wizualizacją Form Bar. Podkreślimy ponownie wkład techniczny
+   włączając architekturę multi-modelową, pipeline ETL z automatyczną normalizacją nazw
+   drużyn oraz integrację nowoczesnych technologii internetowych z klasycznym uczeniem
+   maszynowym. Podsumowanie potwierdzi że oryginalna teza pracy jest
+   wspierana: sztuczna inteligencja może skutecznie przewidywać wyniki sportowe,
+   choć nie z perfekcyjną dokładnością.
+
+7.2 Implikacje teoretyczne
+   Omówimy teoretyczne wkład naszej pracy do dziedziny analizy sportowej,
+   szczególnie demonstrując że proste cechy oparte na formie mogą osiągnąć konkurencyjną
+   dokładność bez złożonych modeli lub kosztownych źródeł danych. Sekcja argumentuje za
+   wartość modeli interpretowalnych (regresja logistyczna z jasną analizą ważności cech)
+   nad podejściami black-box w domenach gdzie przejrzystość jest krytyczna (np. analiza
+   piłkarska dla trenerów i analityków). Omówimy również implikacje dla
+   szerszego pytania o przewidywalności w sporcie.
+
+7.3 Zastosowania praktyczne i rozważania wdrożenia
+   Niniejsza podsekcja bada potencjalne zastosowania praktyczne platformy włączając
+   wykorzystanie przez analityków piłkarskich, firmy bukmacherskie (z uwagami etycznymi) oraz
+   kibiców szukających wglądów opartych na danych. Omówimy rozważania wdrożenia
+   włączając hosting produkcji (Vercel dla frontend, AWS/GCP dla backend),
+   limity stawek API oraz potrzebę automatyzowanych aktualizacji danych (zadania cron
+   zamiast ręcznego wykonania 'update_data.py'). Sekcja adresuje również obawy skalownalności
+   gdy system rozwija się na więcej lig.
+
+7.4 Ograniczenia i wyzwania
+   Wprostym uznamiemy ograniczenia obecnej implementacji włączając mały zestaw cech
+   (4 cechy oparte wyłącznie na ostatnich 5 meczach), brak danych kontekstowych
+   (kontuzje, zawieszenia, pogoda), ręczny proces aktualizacji danych oraz
+   fundamentalna nieprzewidywalność piłki nożnej. Sekcja omówi wyzwania napotkane podczas
+   tworzenia takie jak niespójne nazwy drużyn między źródłami danych, obsługa
+   brakujących danych oraz balansowanie złożoności modelu z interpretowalnością.
+   Wyjaśnimy dlaczego perfekcyjna predykcja jest teoretycznie niemożliwa ze względu na
+   wrodzoną losowość oraz czynniki zewnętrzne w piłce nożnej.
+
+7.5 Przyszłe prace i ulepszenia
+   Sekcja ta przedstawia roadmapę rozszerzenia platformy o zaawansowane funkcje:
+
+   1. Zaawansowane modele ML:
+      - Integracja modeli LLM (np. GPT) do analizy raportów meczowych,
+        konferencji prasowych i sentymentu mediów społecznościowych w celu
+        generowania wglądów jakościowych
+      - Metody zintegrowane łączące regresję logistyczną z Random Forest,
+        XGBoost oraz Sieci Neuronowe
+      - Transfer learning z większych zbiorów danych
+
+   2. Rozszerzony zestaw cech:
+      - Integracja Oczekiwanych Goli (xG) dla bardziej nuansowanej analizy meczów
+      - Rekordy Head-to-Head (H2H) między drużynami
+      - Cechy na poziomie zawodników włączając oceny indywidualne, stan kontuzji
+        oraz zawieszenia
+      - Cechy kontekstowe takie jak przewaga gospodarza/gość, dystans podróży
+        oraz warunki atmosferyczne
+
+   3. Nowe funkcjonalności:
+      - Predykcja dokładnego wyniku (np. 2:1) zamiast tylko
+        wygrana/remis/przegrana
+      - Predykcja oceny zawodnika dla indywidualnych meczów
+      - Symulacja sezonu do przewidywania tabeli ligowej
+      - Aktualizacje predykcji na żywo podczas trwających meczów
+
+   4. Ulepszenia danych i infrastruktury:
+      - Zautomatyzowana pipeline ETL z zadaniami zaplanowanymi (cron)
+        do aktualizacji danych w czasie rzeczywistym
+      - Migracja z CSV do PostgreSQL dla lepszej wydajności zapytań oraz
+        zarządzania danymi relacyjnymi
+      - Dodanie więcej lig (La Liga, Serie A, Bundesliga)
+
+   5. Ulepszenia doświadczenia użytkownika:
+      - Tryb ciemny
+      - Możliwości Progressive Web App (PWA)
+      - Optymalizacja mobilna
+      - Funkcje personalizacji (ulubione drużyny, historia predykcji)
+
+7.6 Konce ostateczna
+   Praca kończy się potwierdzeniem że podczas gdy perfekcyjna predykcja w piłce nożnej
+   pozostaje nieosiągalna ze względu na wrodzoną nieprzewidywalność tego sportu,
+   przedstawiona platforma demonstruje że sztuczna inteligencja może dostarczać
+   istotne i statystycznie znaczące predykcje przez staranne inżynierię cech i
+   projektowanie modelu. Praca stanowi fundament do dalszych badań w analizie
+   sportowej, balansując rygor akademicki z praktyczną implementacją oraz dostarczając
+   narzędzie dostępne dla entuzjastów piłkarskich do zaangażowania się z
+   predykcjami opartymi na danych.
+
+
+REFERENCJE
+───────────────────────────────────────────────────────────────────────────────────────
+[Lista publikacji akademickich, książek oraz dokumentacji]
+
+
+DODATKI
+──────────────────────────────────────────────────────────────────────────────────────
+
+A. Próbki kodu
+   [Wybrane funkcje z backend/frontend]
+
+B. Próbki zbiorów danych
+   [Przykładowe wiersze CSV z Premier League i Ekstraklasy]
+
+C. Metryki wydajności
+   [Pełne raporty klasyfikacji oraz macierze pomyłek]
+
+D. Instrukcja dla użytkownika
+   [Przewodnik krok po kroku używania platformy]
+
+================================================================================
+                         KONIEC SPISU TREŚCI
+================================================================================

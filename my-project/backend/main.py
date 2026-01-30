@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import joblib
 import pandas as pd
 import numpy as np
@@ -12,14 +13,22 @@ from ml.utils import load_matches_folder
 
 # --- KONFIGURACJA ---
 BASE_DIR = Path(__file__).resolve().parent
-MODELS_DIR = BASE_DIR / "models" # Nowy folder na modele
+MODELS_DIR = BASE_DIR / "models" 
 DATA_DIR = BASE_DIR / "data"
 LAST_N = 5
+
+# CORS Configuration
+# DEV: Użyj "*" dla środowiska deweloperskiego
+# PROD: Ustaw w zmiennych środowiskowych: ALLOWED_ORIGINS="http://example.com,https://example.com"
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",") if os.getenv("ALLOWED_ORIGINS") else ["*"]
 
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["*"],
+    allow_credentials=True,
 )
 
 class PredictIn(BaseModel):
