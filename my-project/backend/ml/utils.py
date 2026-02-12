@@ -59,20 +59,23 @@ def load_matches_folder(folder: Path) -> pd.DataFrame:
             else:
                 date_series = pd.NaT
 
+            home_goals = pd.to_numeric(df[hg_col], errors="coerce").fillna(0).astype(int)
+            away_goals = pd.to_numeric(df[ag_col], errors="coerce").fillna(0).astype(int)
+
             out = pd.DataFrame({
                 "date": date_series,
                 "home_team": df[home_col].astype(str).str.strip(),
                 "away_team": df[away_col].astype(str).str.strip(),
-                "home_goals": pd.to_numeric(df[hg_col], errors="coerce").fillna(0).astype(int),
-                "away_goals": pd.to_numeric(df[ag_col], errors="coerce").fillna(0).astype(int),
+                "home_goals": home_goals,
+                "away_goals": away_goals,
             })
-            
+
             out["home_team"] = out["home_team"].replace(TEAM_MAPPING)
             out["away_team"] = out["away_team"].replace(TEAM_MAPPING)
 
             out = out.dropna(subset=["date"])
             frames.append(out)
-            
+
         except Exception as e:
             print(f"⚠️ Pomijam plik {f.name} z powodu błędu: {e}")
 
@@ -82,5 +85,5 @@ def load_matches_folder(folder: Path) -> pd.DataFrame:
     all_df = pd.concat(frames, ignore_index=True)
     all_df = all_df[all_df["home_team"].ne(all_df["away_team"])]
     all_df = all_df.dropna(subset=["home_team", "away_team"])
-    
+
     return all_df.reset_index(drop=True)

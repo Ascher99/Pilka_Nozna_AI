@@ -87,14 +87,14 @@ def load_latest_stats_for_league(league_id: str, league_dir: Path) -> tuple[dict
             
         return final_form, histories
     except Exception as e:
-        print(f"⚠️ Błąd liczenia statystyk dla {league_id}: {e}")
+        print(f"[WARNING] Blad liczenia statystyk dla {league_id}: {e}")
         return {}, {}
 
 def load_all_models():
     """Ładuje modele i oblicza statystyki dla wszystkich lig."""
     model_files = glob.glob(str(MODELS_DIR / "model_*.pkl"))
     if not model_files:
-        print("⚠️ Brak wytrenowanych modeli w folderze 'models'. Używam trybu MOCK.")
+        print("[WARNING] Brak wytrenowanych modeli w folderze 'models'. Uzywam tryb MOCK.")
         return
 
     for f_path in model_files:
@@ -108,12 +108,12 @@ def load_all_models():
             
             if league_dir.exists():
                 last_stats[league_id], raw_histories[league_id] = load_latest_stats_for_league(league_id, league_dir)
-                print(f"✅ Załadowano model i statystyki dla ligi: {league_id.upper()}")
+                print(f"[OK] Zaladowano model i statystyki dla ligi: {league_id.upper()}")
             else:
                 print(f"❌ Brakuje folderu danych dla ligi {league_id}. Statystyki niedostępne.")
 
         except Exception as e:
-            print(f"❌ Błąd ładowania modelu dla ligi {league_id}: {e}")
+            print(f"[WARNING] Brak modelu dla ligi {league_id}. Uzywam tryb MOCK.")
 
 load_all_models()
 
@@ -130,7 +130,7 @@ def predict(inp: PredictIn):
    
     if league_id not in models:
        
-        print(f"⚠️ Brak modelu dla ligi {league_id}. Używam trybu MOCK.")
+        print(f"[WARNING] Brak modelu dla ligi {league_id}. Uzywam tryb MOCK.")
         return {
             "label": "draw", 
             "probs": {"home": 0.33, "draw": 0.34, "away": 0.33},
@@ -147,7 +147,7 @@ def predict(inp: PredictIn):
     a_form = current_stats.get(inp.away_team)
 
     if h_form is None or a_form is None:
-        print(f"⚠️ Nieznana drużyna w {league_id}. Używam trybu MOCK.")
+        print(f"[WARNING] Nieznana druzyna w {league_id}. Uzywam tryb MOCK.")
         return {
             "label": "draw", 
             "probs": {"home": 0.33, "draw": 0.34, "away": 0.33},
@@ -168,7 +168,7 @@ def predict(inp: PredictIn):
     for label, prob in zip(class_labels, probs_raw):
         probs[label] = float(prob)
         
-    label = max(probs, key=probs.get)
+    label = max(probs.items(), key=lambda item: item[1])
     
 
     return {
