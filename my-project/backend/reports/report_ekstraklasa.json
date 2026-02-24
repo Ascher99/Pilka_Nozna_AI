@@ -1,0 +1,12 @@
+{
+    "Baseline (LogReg)": {
+        "accuracy": 0.3914,
+        "f1_macro": 0.2946,
+        "log_loss": 1.1514
+    },
+    "Challenger (RandomForest)": {
+        "accuracy": 0.3289,
+        "f1_macro": 0.262,
+        "log_loss": 1.1746
+    }
+}
