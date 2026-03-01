@@ -130,6 +130,32 @@ def train_for_league(league_id: str, league_dir: Path):
     print(f"Accuracy: {acc_lr:.2%} | Log Loss: {loss_lr:.4f}")
     print(classification_report(y_test, y_pred_lr, target_names=target_enc.classes_))
 
+    if league_id == "premier":
+        from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+        import matplotlib.pyplot as plt
+        
+ 
+        cm = confusion_matrix(y_test, y_pred_lr)
+        
+
+        fig, ax = plt.subplots(figsize=(7, 5))
+        disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=target_enc.classes_)
+        
+
+        disp.plot(cmap='Blues', ax=ax, values_format='d')
+        
+
+        plt.title("Macierz błędów - Premier League (Regresja Logistyczna)", pad=15, fontweight='bold')
+        plt.xlabel("Przewidywana klasa (Predicted label)")
+        plt.ylabel("Rzeczywista klasa (True label)")
+        plt.tight_layout()
+        
+
+        nazwa = "macierz_bledow_premier.png"
+        plt.savefig(nazwa, dpi=300)
+        plt.close()
+        print(f"--> Zapisano macierz błędów jako: {nazwa}")
+   
     print("\n--- WYNIKI: RANDOM FOREST ---")
     print(f"Accuracy: {acc_rf:.2%} | Log Loss: {loss_rf:.4f}")
     print(classification_report(y_test, y_pred_rf, target_names=target_enc.classes_))
