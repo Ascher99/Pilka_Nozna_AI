@@ -9,6 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, log_loss
 from collections import defaultdict
+from sklearn.calibration import CalibratedClassifierCV
 import glob
 
 from ml.utils import load_matches_folder 
@@ -72,7 +73,6 @@ def calculate_features(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, list[s
     df["a_form_goals"] = a_avg_goals
     df["h_form_points"] = h_avg_points
     df["a_form_points"] = a_avg_points
-
     results = []
     for h, a in zip(df["home_goals"], df["away_goals"]):
         if h > a: results.append("home")
@@ -108,7 +108,7 @@ def train_for_league(league_id: str, league_dir: Path):
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
-    model_lr = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=2000)
+    model_lr = LogisticRegression(solver='lbfgs', max_iter=2000, class_weight='balanced')
     model_lr.fit(X_train, y_train)
     
     y_pred_lr = model_lr.predict(X_test)
@@ -117,7 +117,8 @@ def train_for_league(league_id: str, league_dir: Path):
     acc_lr = accuracy_score(y_test, y_pred_lr)
     loss_lr = log_loss(y_test, y_proba_lr)
 
-    model_rf = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
+    base_rf = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42, class_weight='balanced')
+    model_rf = CalibratedClassifierCV(estimator=base_rf, cv=5)
     model_rf.fit(X_train, y_train)
     
     y_pred_rf = model_rf.predict(X_test)
