@@ -21,7 +21,6 @@ function FormBar({ form }: { form?: FormMatch[] }) {
             className={`group relative w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-sm cursor-help ${color}`}
           >
             {match.result}
-            {/* Tooltip ukryty domyślnie, pokazuje się na hover */}
             <div className="absolute bottom-full mb-2 hidden group-hover:block w-max bg-gray-900/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg shadow-xl border border-gray-700 z-50">
               {match.score}
               <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 border-r border-b border-gray-700 rotate-45"></div>
@@ -198,7 +197,7 @@ export default function Predictor() {
           <div className="bg-gray-900/50 p-6 border-b border-gray-700 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <h3 className="text-xl font-bold flex items-center gap-2">
-                🏆 Raport Meczu
+                 Raport Meczu
               </h3>
               <p className="text-sm text-gray-400 mt-1">{home} vs {away}</p>
             </div>
@@ -241,7 +240,6 @@ export default function Predictor() {
               </div>
             </div>
 
-            {/* SEKCJA MINI TABELI LIGOWEJ */}
             {(result.home_table || result.away_table) && (
               <div className="bg-gray-900 rounded-xl p-4 border border-gray-700 shadow-inner">
                 <h4 className="font-bold text-gray-300 mb-4 flex items-center justify-between">
@@ -287,7 +285,7 @@ export default function Predictor() {
             <div>
               <h4 className="font-semibold text-lg mb-4 flex items-center justify-between">
                 <span>Wektory Prawdopodobieństw</span>
-                <span className="text-xs font-normal text-gray-400 bg-gray-900 px-2 py-1 rounded">Model ML / Softmax</span>
+
               </h4>
               <div className="space-y-5">
                 {(["home", "draw", "away"] as const).map((k) => {
